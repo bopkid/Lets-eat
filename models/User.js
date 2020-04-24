@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Recipe = require('./Recipe')
+
 
 const UserSchema = new mongoose.Schema({
     name: {

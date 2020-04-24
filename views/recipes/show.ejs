@@ -3,9 +3,10 @@
     <h1>Recipe Details</h1>
     <section>
 
-        <h4>Name:</h4> <p><%=recipe.name%></p>
-        <!-- <small>by <a href = "/users<%=//recipe.user._id%>"><%=//recipe.user.name%> </a> </small>
-        <%=//recipe.pic%> -->
+        <h4>Name:</h4> <p><%=recipe.title%></p>
+
+        <small>by <a href = "/users<%=recipe.user._id%>"><%=recipe.user.name%> </a> </small>
+        <%=recipe.pic.work%>
 
         <h4>What Type of Meal:</h4><p><%=recipe.typeOfMeal%></p>
 

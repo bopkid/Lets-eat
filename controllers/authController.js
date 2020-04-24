@@ -8,7 +8,7 @@ const db = require('../models')
 
 // GET Register route
 router.get('/register', (req,res)=>{
-    res.render('user/register', {
+    res.render('auth/register', {
         title: 'Register',
     })
 });
@@ -40,7 +40,7 @@ router.post('/register', async (req,res) => {
         // Creating the new user
         await db.User.create(userData);
         // Redirect to login page
-        res.redirect('/users/login');
+        res.redirect('/auth/login');
     } catch (err){
         res.send(err);
     }
@@ -48,7 +48,7 @@ router.post('/register', async (req,res) => {
 
 // GET Login New
 router.get('/login', (req,res) => {
-    res.render('user/login', {
+    res.render('auth/login', {
         title: 'Login',
     })
 })
@@ -59,7 +59,7 @@ router.post('/login', async (req,res) => {
     try {
         const user = await db.User.findOne({email: req.body.email});
         if (!user) {
-        return res.render('user/login', {
+        return res.render('auth/login', {
             title: 'Login',
         });
         }
@@ -67,7 +67,7 @@ router.post('/login', async (req,res) => {
         const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
         
         if(!passwordsMatch) {
-            return res.render('user/login', {
+            return res.render('auth/login', {
                 title: 'Login',
             });
         }

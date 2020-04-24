@@ -1,0 +1,32 @@
+<%- include('../partials/_head') %>
+<main>
+    <h1>Sign Up</h1>
+    <form action="/users/register" method="POST"> 
+        <div>
+            <label for="name">Name</label>
+            <input type='text' id="name" name="name"/> 
+        </div>
+        <div>
+            <label for="isProfessionalChef">Are you a Professional Chef?</label>
+            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef"/> 
+        </div>
+        <div>
+            <label for="foodPreference">What is your Favorite Types of Cuisine?</label>
+            <input type='checkbox' id="foodPreference" name="foodPreference"/> 
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type='text' id="email" name="email"/> 
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type='text' id="password" name="password"/> 
+        </div>
+        <div>
+            <label for="password2">Confirm Password</label>
+            <input type='text' id="password2" name="password2"/> 
+        </div>
+        <button type="submit" value= "Register">Let's Eat!</button> 
+    </form>
+</main>
+<%- include('../partials/_footer') %>

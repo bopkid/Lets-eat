@@ -100,9 +100,9 @@ router.delete('/:id', async (req,res)=>{
     try{
         const deletedRecipe = await db.Recipe.findByIdAndRemove(req.params.id);
         const foundUser  = await db.Recipe.findById(deletedRecipe.user)
-
         foundUser.recipes.remove(req.params.id);
         foundUser.save()
+        res.redirect('/recipes')
     }catch(err){
         res.send(err)
     }

@@ -5,6 +5,19 @@ const router = express.Router();
 
 const db = require('../models')
 
+// Show route
+/* router.get('/:id', async (req,res) => {
+    try{
+        const foundUser = await db.User.findById(req.params.id).populate('recipes').exec()
+        res.render('user/show', {
+            title: 'User Details',
+            user: foundUser,
+        })
+    } catch (err) {
+        res.send(err)
+    }
+}); */
+
 
 // GET Register route
 router.get('/register', (req,res)=>{
@@ -74,7 +87,7 @@ router.post('/login', async (req,res) => {
     // Create Session
     // Authentication Part
     req.session.currentUser = user._id;
-    res.redirect('/recipes');
+    res.redirect(`/`);
 } catch (error) {
     res.send(err);
 }

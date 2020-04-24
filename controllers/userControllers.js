@@ -17,7 +17,11 @@ router.get('/register', (req,res)=>{
 router.post('/register', async (req,res) => {
     // Validating
     try {
-        // Create a New User
+        if(req.body.isProfessionalChef === 'on'){
+            req.body.isProfessionalChef = true
+        } else {
+            req.body.isProfessionalChef = false
+        }        // Create a New User
         const user = await db.User.findOne({email: req.body.email})
         // Check if we got a user object back from the database
         if(user) {
@@ -36,7 +40,7 @@ router.post('/register', async (req,res) => {
         // Creating the new user
         await db.User.create(userData);
         // Redirect to login page
-        res.redirect('/user/login');
+        res.redirect('/users/login');
     } catch (err){
         res.send(err);
     }

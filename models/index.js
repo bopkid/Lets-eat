@@ -14,5 +14,6 @@ mongoose.connect(connectionString,configOption)
 
 
 module.exports = {
-    Recipe: require('./Recipe')
+    Recipe: require('./Recipe'),
+    User: require('./User')
 }

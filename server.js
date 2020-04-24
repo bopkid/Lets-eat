@@ -16,6 +16,7 @@ const methodOverride = require('method-override');
 // Port Activation
 const port = process.env.PORT || 4000;
 
+const authController = require('./controllers/authController')
 const userController = require('./controllers/userControllers')
 const recipeController = require('./controllers/recipeControllers')
 
@@ -45,8 +46,8 @@ app.get('/', (req,res) => {
     });
 });
 
-app.use('/users', userController)
-
+app.use('/auth', authController)
+app.use('/user', userController)
 app.use('/recipes',recipeController)
 
 // ------------------------------------------ SERVER LISTENER -------------

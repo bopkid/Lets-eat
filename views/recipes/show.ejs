@@ -1,16 +1,24 @@
-<%- include('../partials/_head') %>
+<%- include('../partials/_header') %>
 <main>
     <h1>Recipe Details</h1>
     <section>
-    <h4>Name:</h4> <p><%=recipe.title%></p>
-    <small>by <a href = "/users/<%=recipe.user._id%>"><%=recipe.user.name%> </a> </small>
-    <%=recipe.pic%>
-    <h4>What Type of Meal:</h4><p><%=recipe.typeOfMeal%></p>
-    <h4>Origin of Recipe:</h4><p><%=recipe.origin%></p>
-    <h4>How Many Mouths Does it Feed?</h4><p><%=recipe.serving%></p>
-    <h4>Ingredients Needed:</h4><p><%=recipe.ingredients%></p>
-    <h4>Directions:</h4><p><%=recipe.direction%></p>
-    <h4>Posted:</h4><p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
-</section>
+
+        <h4>Name:</h4> <p><%=recipe.title%></p>
+
+        <!-- <small>by <a href = "/users<%=//recipe.user._id%>"><%=//recipe.user.name%> </a> </small>
+        <%=//recipe.pic%> -->
+
+        <h4>What Type of Meal:</h4><p><%=recipe.typeOfMeal%></p>
+
+        <h4>Origin of Recipe:</h4><p><%=recipe.origin%></p>
+
+        <h4>How Many Mouths Does it Feed?</h4><p><%=recipe.serving%></p>
+
+        <h4>Ingredients Needed:</h4><p><%=recipe.ingredients%></p>
+
+        <h4>Directions:</h4><p><%=recipe.direction%></p>
+
+        <h4>Posted:</h4><p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
+    </section>
 </main>
 <%- include('../partials/_footer') %>

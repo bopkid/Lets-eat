@@ -68,6 +68,7 @@ router.get('/:id', async (req,res)=>{
     }
 })
 
+
 // GET Recipes edit
 router.get('/:id/edit', async(req,res)=>{
     try{
@@ -106,8 +107,6 @@ router.delete('/:id', async (req,res)=>{
         res.send(err)
     }
 })
-
-
 
 
 module.exports = router

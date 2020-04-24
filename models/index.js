@@ -1,15 +1,17 @@
-const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost:27017/lets-eat';
-const configOptions = {
+const mongoose =require('mongoose');
+
+const connectionString = 'mongodb://localhost:27017/Lets-eat'
+const configOption ={
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
+    useCreateIndex:true,
+    useUnifiedTopology:true,
 }
 
-mongoose.connect(connectionString, configOptions)
-.then(()=> console.log('MongoDB connected successfully'))
-.catch((err) => console.log(`MongoDB connection error: ${err}`))
+mongoose.connect(connectionString,configOption)
+    .then(()=>{console.log('MongoDB conntected sucessfully')})
+    .catch((err)=>{console.log(`MongoDB connection error: ${err}`)})
+
 
 module.exports = {
     Recipe: require('./Recipe'),

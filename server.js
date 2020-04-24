@@ -16,6 +16,9 @@ const methodOverride = require('method-override');
 // Port Activation
 const port = process.env.PORT || 4000;
 
+const userController = require('./controllers/userControllers')
+const recipeController = require('./controllers/recipeControllers')
+
 // Set View Engine
 app.set('view engine', 'ejs')
 
@@ -33,6 +36,18 @@ app.use(bodyParser.json());
 
 // Method Override
 app.use(methodOverride('_method'));
+
+// =========================================routes ==================
+
+app.get('/', (req,res) => {
+    res.render('index', {
+        title: 'Home'
+    });
+});
+
+app.use('/users', userController)
+
+app.use('/recipes',recipeController)
 
 // ------------------------------------------ SERVER LISTENER -------------
 

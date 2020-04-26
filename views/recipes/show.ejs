@@ -20,5 +20,10 @@
 
         <h4>Posted:</h4><p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
     </section>
+    <form action = "/recipes/<%=recipe._id%>?_method=DELETE" method = "POST">
+        <button type = 'submit'>Delete Recipe</button>
+    </form>
+    <a href = "/recipes/<%=recipe._id%>/edit">
+        <button>Edit Recipe</button></a>
 </main>
 <%- include('../partials/_footer') %>

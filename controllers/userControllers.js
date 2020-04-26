@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const db = require('../models')
 
+
 router.get('/:id', async (req,res)=>{
     try{
         console.log(req.session._id)
@@ -32,6 +33,19 @@ router.get('/new',async (req,res) =>{
     }
 })
 
+
+// Show route
+ router.get('/:id', async (req,res) => {
+ try {
+        const foundUser = await db.User.findById(req.params.id).populate('recipes').exec()
+        res.render('user/show', {
+            title: 'User Details',
+            user: foundUser,
+        })
+    } catch (err) {
+        res.send(err)
+    }
+});
 
 
 module.exports = router;

@@ -2,15 +2,17 @@
 
     <h1>Recipes Page</h1>
 
-    <%recipes.forEach((recipe) => {%> 
+
         <section>
+            <%recipes.forEach((recipe) => {%> 
             <h4>
                 <a href="recipes/<%=recipe._id%>">
                     <%= recipe.name %> 
                 </a>
             </h4> 
+            <% }) %>
         </section>
-   <% }) %>
+
 
     
 <%-include('../partials/_footer')%>

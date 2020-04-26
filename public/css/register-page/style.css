@@ -1,0 +1,80 @@
+:root {
+    --yellow: #F8B734;
+    --orange: #f78f29;
+    --blue:  #2B898B;
+    --green: #27704f;
+    --dark-grey: #213037;
+    --off-white: #f5f5f5;
+}
+
+
+* {box-sizing: border-box;}
+
+
+main {
+	background: var(--off-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row-reverse;
+	height: 100vh;
+    margin: 0;
+    font-family: Raleway;
+}
+
+input {
+    margin:15px;
+    
+}
+
+.sign-up__form--non-checkbox {
+    background-color: var(--off-white);
+    border: none;
+	padding: 5px;
+    margin: 8px 0;
+    height: 8%;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.sign-up__form {
+    flex-grow: 1;
+    width: 50%;
+    height: 80%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    padding-top: 10%;
+    border-radius: 10px 0 0 10px;
+}
+
+.sign-up__description {
+    flex-grow: 2;
+    width: 50%;
+    height: 80%;
+    background: linear-gradient(to right, var(--yellow), var(--orange));
+    text-align: center;
+    padding-top: 20%;
+    border-radius: 10px 0 0 10px;
+}
+
+.sign-up__form--button {
+    padding-top: 20px;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid var(--green);
+	background-color: var(--green);
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--orange);
+}

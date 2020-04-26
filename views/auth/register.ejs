@@ -1,7 +1,11 @@
 <%- include('../partials/_head') %>
 <main>
     <h1>Sign Up</h1>
-    <form action="/users/register" method="POST"> 
+    <form action="/auth/register" method="POST"> 
+        <div>
+            <label for="username">Username</label>
+            <input type='text' id="username" name="username"/> 
+        </div>
         <div>
             <label for="name">Name</label>
             <input type='text' id="name" name="name"/> 
@@ -12,12 +16,16 @@
         </div>
         <div>
             <label for="foodPreference">What is your Favorite Type of Cuisine?</label>
+            
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Asian"/> 
             <label for="foodPreference">Asian</label>
+
             <input type='checkbox' id="foodPreference" name="foodPreference" value="American"/> 
             <label for="foodPreference">American</label>
+
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Indian"/> 
             <label for="foodPreference">Indian</label>
+
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
             <label for="foodPreference">Mediteranean</label>
         </div>

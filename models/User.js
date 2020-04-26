@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
-const Recipe = require('./Recipe')
+
 
 const UserSchema = new mongoose.Schema({
+    username:{
+        type:String,
+        unique:true,
+        required:true
+    },
     name: {
         type: String,
-        unique: true,
         required: true,
     },
     email: {

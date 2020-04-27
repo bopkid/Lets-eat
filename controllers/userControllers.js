@@ -46,14 +46,12 @@ router.post('/',async (req,res)=>{
  try {
         const allRecipe = await db.Recipe.find()
         const foundUser = await db.User.findById(req.params.id)
-        const allRecipes = await db.Recipe.find({origin:'asian'})
         .populate('recipes')
         .exec();
 
         res.render('user/show', {
             recipes: allRecipe,
             title: 'User Details',
-            recipes:allRecipes,
             user: foundUser,
         })
     } catch (err) {
@@ -78,7 +76,7 @@ router.get('/:id/edit', async (req,res) => {
 router.put('/:id', async (req,res) => {
     try {
     const updatedUser = await db.User.findByIdAndUpdate(req.params.id, req.body, {new: true});
-    res.redirect(`/user/${req.params.id}`)
+    res.redirect(`/users/${req.params.id}`)
     } catch (err) {
         return res.send(err)
     }
@@ -115,6 +113,23 @@ router.get('/:id/recipes',async (req,res)=>{
         res.send(err)
     }
 })
+
+// DELETE ROUTE 
+router.delete('/:id/recipes', async (req,res) => {
+    try {
+    const deletedRecipe = await db.Recipe.findByIdAndDelete(req.params.id)
+    const foundUser = await db.User.findById(deletedRecipe.user)
+    console.log(deletedRecipe)
+    foundUser.recipes.remove(req.params.id);
+    foundUser.save()
+    res.redirect('/recipes')
+    }
+    catch (err) {
+        return res.send(err)
+    }
+})
+
+
 
 
 

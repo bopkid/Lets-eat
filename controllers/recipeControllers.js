@@ -23,11 +23,12 @@ router.get('/', async(req,res)=>{
 
  router.get('/new',async (req,res)=>{
     try{
-        const allUser =  await db.User.find({})
-
-        res.render('recipes/new',{
-            title:'New Recipes',
-            user: allUser
+        const foundRecipe = await db.Recipe.findById(req.params.id);
+        const foundUser = await db.User.findById(foundRecipe.user);
+        res.render('recipes/show',{
+            recipe:foundRecipe, 
+            user:foundUser,
+            title: 'Recipes'
         })
     }catch(err){
         res.send(err)
@@ -73,6 +74,17 @@ router.get('/', async(req,res)=>{
      }
  })
 
+ router.get('/:id', async (req,res)=>{
+    try{
+        const foundRecipe = await db.Recipe.findById(req.params.id).populate('user').exec();
+        res.render('recipes/show',{
+            recipe:foundRecipe, 
+            title: 'Recipes'
+        })
+    }catch(err){
+        res.send(err)
+    }
+})
 
  router.put('/:id', async(req,res)=>{
      try{
@@ -87,17 +99,7 @@ router.get('/', async(req,res)=>{
  })
 
 
-router.get('/:id', async (req,res)=>{
-    try{
-        const foundRecipe = await db.Recipe.findById(req.params.id)
-        res.render('recipes/show',{
-            recipe:foundRecipe, 
-            title: 'Recipes'
-        })
-    }catch(err){
-        res.send(err)
-    }
-})
+
 
  router.delete('/:id', async (req,res)=>{
      try{

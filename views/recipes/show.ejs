@@ -3,23 +3,33 @@
     <h1>Recipe Details</h1>
     <section>
 
+        <h4>Recipe Name:</h4> 
+        <p><%=recipe.name%></p>
 
-        <h4>Name:</h4> <p><%=recipe.name%></p>
+        <h4>Recipe Made By:</h4>
+        <%recipe.user.forEach((user2) => {%> 
+            <ul><li><a href = "/user/<%=user2._id%>"><%=user2.name%></a></li></ul> 
+            <% }) %>
+        <h4>What Type of Meal:</h4>
+        <p><%=recipe.typeOfMeal%></p>
 
-        <!-- <small>by <a href = "/users<%=//recipe.user._id%>"><%=//recipe.user.name%> </a> </small>
-        <%=//recipe.pic.work%> -->
+        <h4>Origin of Recipe:</h4>
+        <p><%=recipe.origin%></p>
 
-        <h4>What Type of Meal:</h4><p><%=recipe.typeOfMeal%></p>
+        <h4>How Many Mouths Does it Feed?</h4>
+        <p><%=recipe.serving%></p>
 
-        <h4>Origin of Recipe:</h4><p><%=recipe.origin%></p>
 
-        <h4>How Many Mouths Does it Feed?</h4><p><%=recipe.serving%></p>
+        <h4>Ingredients Needed:</h4>
+        <p><%=recipe.ingredients%></p>
 
-        <h4>Ingredients Needed:</h4><p><%=recipe.ingredients%></p>
+        <h4>Directions:</h4>
+        <p><%=recipe.direction%></p>
 
-        <h4>Directions:</h4><p><%=recipe.direction%></p>
+        <h4>Posted:</h4>
+        <p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
 
-        <h4>Posted:</h4><p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
+
     </section>
     <form action = "/recipes/<%=recipe._id%>?_method=DELETE" method = "POST">
         <button type = 'submit'>Delete Recipe</button>

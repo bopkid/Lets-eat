@@ -1,8 +1,7 @@
-<link rel="stylesheet" type="text/css"   href="/css/register-page/style.css">
 <%- include('../partials/_head') %>
 <main>
     <section class = "sign-up__form">
-    <h1>Sign Up</h1>
+    <h1>Edit <%=user.name%></h1>
     <form action="/auth/register" method="POST"> 
         <div>
             <input class = "sign-up__form--non-checkbox" type='text' id="name" placeholder="Name" name="name"/> 
@@ -44,10 +43,3 @@
         <button type="submit" value= "Register">Let's Start Cooking!</button> 
     </section>
     </form>
-</section>
-<section class = "sign-up__description">
-    <h2>Cooking Redefined!</h2>
-    <p>Recipes so good, you'll second guess about going out to eat.</p>
-</section>
-</main>
-<%- include('../partials/_footer') %>

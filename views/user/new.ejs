@@ -13,6 +13,7 @@
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
         <br />
+<<<<<<< HEAD
 
 
         <div> 
@@ -21,6 +22,8 @@
         </div>
         <br />
 
+=======
+>>>>>>> submaster
         <div>
             <label for="ingredients">Ingredients Needed to make this Recipe </label><br />
             <textarea id="ingredients" name="ingredients"></textarea>
@@ -32,13 +35,23 @@
         </div>
 
         <div>
-            <label for="pic">Place Image Link Here</label>
-            <input type='url' id="pic" name="pic"/> 
+            <label for="url">Place Image Link Here</label>
+            <input type='url' id="url" name="url"/> 
         </div>
         
         <div>
-            <label for="origin">Origin or History of this Recipe</label>
-            <input type='text' id="origin" name="origin"/> 
+            <label for="origin">What culture does this recipe belong to?</label> <br>
+            <input type='checkbox' id="origin" name="origin" value="Asian"/> 
+            <label for="origin">Asian</label>
+
+            <input type='checkbox' id="origin" name="origin" value="American"/> 
+            <label for="origin">American</label>
+
+            <input type='checkbox' id="origin" name="origin" value="Indian"/> 
+            <label for="origin">Indian</label>
+
+            <input type='checkbox' id="origin" name="origin" value="Mediterranean"/> 
+            <label for="origin">Mediteranean</label>
         </div>
 
         <div>

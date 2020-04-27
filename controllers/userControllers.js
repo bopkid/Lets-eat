@@ -44,20 +44,58 @@ router.post('/',async (req,res)=>{
 // Show route
  router.get('/:id', async (req,res) => {
  try {
+        const allRecipe = await db.Recipe.find()
         const foundUser = await db.User.findById(req.params.id)
-        const allRecipes = await db.Recipe.find({origin:'asian'})
         .populate('recipes')
         .exec();
 
         res.render('user/show', {
+            recipes: allRecipe,
             title: 'User Details',
-            recipes:allRecipes,
             user: foundUser,
         })
     } catch (err) {
         res.send(err)
     }
 });
+
+// EDIT ROUTE
+router.get('/:id/edit', async (req,res) => {
+    try {
+    const foundUser = await db.User.findById(req.params.id)
+    res.render('user/edit', {
+        title: `Edit ${foundUser.name}`,
+        user: foundUser
+    })
+} catch (err) {
+    return res.send(err)
+}
+})
+
+// UPDATE EDIT POST
+router.put('/:id', async (req,res) => {
+    try {
+    const updatedUser = await db.User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.redirect(`/users/${req.params.id}`)
+    } catch (err) {
+        return res.send(err)
+    }
+})
+
+// DELETE ROUTE Destroy
+// :id is a property
+// :_id property of a record on a database
+router.delete('/:id', async (req,res) => {
+    try {
+    const deletedUser = await db.User.findByIdAndDelete(req.params.id)
+    const result = await db.Recipe.deleteMany({user: req.params.id})
+    console.log('Delete Many Result = ', result)
+    res.redirect('/')
+    }
+    catch (err) {
+        return res.send(err)
+    }
+})
 
 
 // Index GET route
@@ -75,6 +113,23 @@ router.get('/:id/recipes',async (req,res)=>{
         res.send(err)
     }
 })
+
+// DELETE ROUTE 
+router.delete('/:id/recipes', async (req,res) => {
+    try {
+    const deletedRecipe = await db.Recipe.findByIdAndDelete(req.params.id)
+    const foundUser = await db.User.findById(deletedRecipe.user)
+    console.log(deletedRecipe)
+    foundUser.recipes.remove(req.params.id);
+    foundUser.save()
+    res.redirect('/recipes')
+    }
+    catch (err) {
+        return res.send(err)
+    }
+})
+
+
 
 
 

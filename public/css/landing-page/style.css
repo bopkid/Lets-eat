@@ -1,0 +1,227 @@
+:root {
+    --yellow: #F8B734;
+    --orange: #f78f29;
+    --blue:  #2B898B;
+    --green: #27704f;
+    --dark-grey: #213037;
+    --off-white: #f5f5f5;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+body { 
+	display: flex;
+	align-items: center; 
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Raleway', 
+    sans-serif;
+}
+
+
+.first-block {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to right, var(--orange), var(--yellow));
+}
+
+.first-block__logo {
+    align-self: flex-start;
+    padding-top: 15rem;
+    flex-grow: 1;
+}
+
+.first-block__logo h3 {
+    padding-left: 7rem;
+    letter-spacing: 1px;
+}
+
+.login-button {
+    padding-left: 10rem;
+}
+
+.login-button a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    background-color: var(--green);
+    padding: 5px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 0 0 var(--green);
+    margin-right: 1em;
+}
+
+.login-button a:hover {
+    background-color: var(--orange);
+}
+
+.signup-button {
+    padding-left: 10rem;
+    padding-top: 2rem;
+}
+
+.signup-button a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    background-color: var(--green);
+    padding: 5px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 0 0 var(--green);
+    margin-right: 1em;
+}
+
+.signup-button a:hover {
+    background-color: var(--orange);
+}
+
+
+.button:active {
+    transform: translateY(10px);
+    box-shadow: none;
+}
+
+.ingredients {
+    flex-grow: 2;
+    padding-right: 8rem;
+    padding-bottom: 5rem;
+}
+
+.second-block {
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+}
+.second-block img{
+    width: 50%;
+}
+
+.second-block__information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 6rem;
+}
+
+
+.share {
+    --button-width: 280px;
+    --button-height: 80px;
+    width: var(--button-width);
+    height: var(--button-height);
+    background: #dfe6e9;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: .3s linear;
+    overflow: hidden;
+  }
+  
+  .share:hover {
+    transform: scale(1.1);
+  }
+  
+  .share__cover {
+    position: absolute;
+    background: #2d3436;
+    color: #f1f1f1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80px;
+    font-size: 1.6em;
+    transition: .4s linear;
+    border-radius: 20px;
+  }
+  
+  .share:hover .share__cover {
+    transform: translateX(-100%);
+  }
+  
+  .share a {
+    flex: 1;
+    font-size: 26px;
+    text-align: center;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    color: #2d3436;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: .3s linear;
+  }
+  
+  .share:hover a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .share a:hover {
+    transform: scale(1.4);
+    color: #f1f1f1;
+  }
+  
+  .share__icon--facebook:hover {
+    background: #3b5998;
+  }
+  
+  .share__icon--twitter:hover {
+    background: #55acee;
+  }
+  
+  .share__icon--instagram:hover {
+    background: #517fa4;
+  }
+  
+  .share__icon--linkedin:hover {
+    background: #0077b5;
+  }
+
+.third-block {
+    background-color: var(--blue);
+    text-align: center;
+    height: 50vh;
+    width: 100%;
+    padding-top: 5%;
+    color: var(--off-white);
+}
+
+.third-block__steps {
+    display: flex;
+    color: var(--off-white);
+}
+
+.third-block__steps-first {
+    height: 50%;
+    width: 33%;
+}
+
+.third-block__steps-second {
+    flex-grow: 1;
+}
+
+.third-block__steps-third {
+    height: 50%;
+    width: 33%;
+}
+
+.third-block__steps-first + .third-block__steps-second + .third-block__steps-third {
+    margin-left: 2%
+}
+
+.third-block__steps-icons {
+    align-self: flex-end;
+    padding-top: 5%;
+    width: 4rem;
+}

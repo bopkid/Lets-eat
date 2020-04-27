@@ -1,22 +1,30 @@
+<link rel="stylesheet" type="text/css"   href="/css/register-page/style.css">
 <%- include('../partials/_head') %>
 <main>
+    <section class = "sign-up__form">
     <h1>Sign Up</h1>
     <form action="/auth/register" method="POST"> 
+
         <div>
             <label for="username">Username</label>
             <input type='text' id="username" name="username"/> 
         </div>
+
         <div>
-            <label for="name">Name</label>
-            <input type='text' id="name" name="name"/> 
+            <input class = "sign-up__form--non-checkbox" type='text' id="name" placeholder="Name" name="name"/> 
         </div>
         <div>
             <label for="isProfessionalChef">Are you a Professional Chef?</label>
             <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef"/> 
+            <label for="isProfessionalChef">Yes</label>
+            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" value="null"/> 
+            <label for="isProfessionalChef">No</label>
         </div>
         <div>
+
             <label for="foodPreference">What is your Favorite Type of Cuisine?</label>
             
+
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Asian"/> 
             <label for="foodPreference">Asian</label>
 
@@ -30,18 +38,22 @@
             <label for="foodPreference">Mediteranean</label>
         </div>
         <div>
-            <label for="email">Email</label>
-            <input type='text' id="email" name="email"/> 
+            <input class = "sign-up__form--non-checkbox" type='text' id="email" placeholder="Email" name="email"/> 
         </div>
         <div>
-            <label for="password">Password</label>
-            <input type='text' id="password" name="password"/> 
+            <input class = "sign-up__form--non-checkbox"type='text' id="password" placeholder="Enter Password" name="password"/> 
         </div>
         <div>
-            <label for="password2">Confirm Password</label>
-            <input type='text' id="password2" name="password2"/> 
+            <input class = "sign-up__form--non-checkbox" type='text' id="password2" placeholder="Confirm Password" name="password2"/> 
         </div>
-        <button type="submit" value= "Register">Let's Eat!</button> 
+        <section class ="sign-up__form--button">
+        <button type="submit" value= "Register">Let's Start Cooking!</button> 
+    </section>
     </form>
+</section>
+<section class = "sign-up__description">
+    <h2>Cooking Redefined!</h2>
+    <p>Recipes so good, you'll second guess about going out to eat.</p>
+</section>
 </main>
 <%- include('../partials/_footer') %>

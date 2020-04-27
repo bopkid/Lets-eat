@@ -38,23 +38,18 @@ router.post('/',async (req,res)=>{
     }
 })
 
+// Show route
+ router.get('/:id', async (req,res) => {
+ try {
+        const foundUser = await db.User.findById(req.params.id)
+        .populate('recipes')
+        .exec();
 
-// GET index router
-router.get('/:id', async (req,res)=>{
-    try{
-        
-        if(!req.session.currentUser){
-            return res.redirect('/auth/login')
-        }
-    const foundUser = await db.User.findById(req.session.currentUser);
-    const allrecipes = await db.Recipe.find();
-
-    res.render('user/index',{
-        user: foundUser,
-        recipes:allrecipes,
-        title: foundUser.name
-    })
-    }catch(err){
+        res.render('user/show', {
+            title: 'User Details',
+            user: foundUser,
+        })
+    } catch (err) {
         res.send(err)
     }
 });

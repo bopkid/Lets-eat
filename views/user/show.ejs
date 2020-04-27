@@ -1,0 +1,25 @@
+<%-include('../partials/_head')%>
+
+<main>
+    <button><a href="/users/<%= user._id%>/new">Add New Recipes</a></button>
+    <h1>User Details</h1>
+    
+    <section>
+    <h4>Name:</h4> <p><%=user.name%></p>
+        <h4>Recipes:</h4>
+        <%user.recipes.forEach((recipe) => {%> 
+        <ul><li><a href = "/recipes/<%=recipe._id%>"><%=recipe.name%></a></li></ul> 
+        <% }) %>
+    <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
+</section>
+
+<section>
+    <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
+    <button type = 'submit'>Delete Account</button>
+</form>
+<a href = "/users/<%=user._id%>/edit">
+    <button>Edit Account</button></a>
+</section>
+</main>
+    
+<%-include('../partials/_footer')%>

@@ -1,16 +1,27 @@
-var slideIndex = 0;
-showSlides();
-
-console.log('hi')
-
-function showSlides() {
-  const slides = document.getElementsByClassName("slideshow-container__images");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+// Create random questions without repeat
+function randomNoRepeats(array) {
+  let copy = array.slice(0);
+  return function() {
+  if (copy.length < 1) { 
+  copy = array.slice(0); 
 }
+  let index = Math.floor(Math.random() * copy.length);
+  let item = copy[index];
+  copy.splice(index, 1);
+  return item;
+  };
+}
+
+// Random Recipe
+
+//DOM
+const randomRecipe = document.querySelector('.random-recipe')
+
+let recipeName = recipes.forEach(recipe => {
+  recipeName = recipe
+});
+
+randomRecipe.addEventListener('click', function(){
+  randomNoRepeats(recipeName)
+});
 

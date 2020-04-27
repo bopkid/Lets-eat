@@ -50,7 +50,7 @@ app.get('/', (req,res) => {
 });
 
 app.use('/auth', authController)
-app.use('/users', userController)
+app.use('/user', userController)
 app.use('/recipes',recipeController)
 
 // ------------------------------------------ SERVER LISTENER -------------

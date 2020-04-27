@@ -31,6 +31,7 @@ router.post('/register', async (req,res) => {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt)
         const userData = {
+            username:req.body.username,
             name: req.body.name,
             email: req.body.email,
             isProfessionalChef: req.body.isProfessionalChef,
@@ -74,7 +75,7 @@ router.post('/login', async (req,res) => {
     // Create Session
     // Authentication Part
     req.session.currentUser = user._id;
-    res.redirect(`/users/${user._id}`);
+    res.redirect(`/user/${req.session.currentUser}`);
 } catch (error) {
     res.send(err);
 }

@@ -1,0 +1,17 @@
+<%- include('../partials/_head') %>
+
+<main>
+    <button><a href="#">Add New Recipes</a></button>
+    <button class = "random-recipe"><a href="#">Random Recipes</a></button>
+    <button><a href="#">change Food Prefrence</a></button>
+    <h1><%=user.name %> name </h1>
+    <section class = "user-recipes">
+    <%recipes.forEach((recipe) => { %>
+       <% user.foodPreference.forEach((food) => {  %>
+           <% if(recipe.origin === food) { %>
+                <%= recipe.name %>
+        <% }})}) %>
+    </section>
+</main>
+
+<%- include('../partials/_footer') %>

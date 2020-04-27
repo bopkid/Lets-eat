@@ -1,25 +1,56 @@
 <%-include('../partials/_head')%>
+<script type = "text/javascript" src="/javascript/app.js" defer></script>
+    <main>
+        <button>
+            <a href="/users/<%= user._id%>/new">Add New Recipes</a>
+        </button>
+        <button>
+            <a href="/users/<%= user._id%>/recipes">My Recipes</a>
+        </button>
 
-<main>
-    <button><a href="/users/<%= user._id%>/new">Add New Recipes</a></button>
-    <h1>User Details</h1>
-    
-    <section>
-    <h4>Name:</h4> <p><%=user.name%></p>
-        <h4>Recipes:</h4>
-        <%user.recipes.forEach((recipe) => {%> 
-        <ul><li><a href = "/recipes/<%=recipe._id%>"><%=recipe.name%></a></li></ul> 
-        <% }) %>
-    <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
-</section>
+        <h1>User Details</h1>
+        
+        <section>
+            <h4>Name:</h4> 
+            <p><%=user.name%></p>
 
-<section>
-    <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
-    <button type = 'submit'>Delete Account</button>
-</form>
-<a href = "/users/<%=user._id%>/edit">
-    <button>Edit Account</button></a>
-</section>
-</main>
+            <h4>Radom Recipes:</h4>
+                <ul>
+                    <% 
+                    
+                     let num_of_recipe = 0;
+                     let max = 4;
+                     let recipe_list = [];
+                    
+                    if(recipes.length < 4){
+                      
+                     max = recipes.length;
+                    }
+                        while(num_of_recipe < max ){
+                          let random = Math.floor((Math.random()*recipes.length))
+                          console.log(random)
+                            %> 
+                                <li><%= recipes[random].name%></li>
+                            <%
+                                 num_of_recipe++;
+                            console.log('hit recipe')
+                          
+                         
+                          }%>
+                </ul>
+            
+            <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
+        </section>
+
+        <section>
+            <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
+                <button type = 'submit'>Delete Account</button>
+            </form>
+            <a href = "/users/<%=user._id%>/edit">
+            <button>Edit Account</button></a>
+        </section>
+    </main>
     
+
+
 <%-include('../partials/_footer')%>

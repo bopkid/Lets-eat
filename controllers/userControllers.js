@@ -32,7 +32,10 @@ router.post('/',async (req,res)=>{
 
         foundUser.recipes.push(newRecipe);
         foundUser.save();
-        res.redirect(`user/${req.body.id}`)
+        
+        res.redirect(`users/${foundUser._id}`)
+
+
     }catch(err){
         res.send(err)
     }
@@ -42,17 +45,40 @@ router.post('/',async (req,res)=>{
  router.get('/:id', async (req,res) => {
  try {
         const foundUser = await db.User.findById(req.params.id)
+        const allRecipes = await db.Recipe.find({origin:'asian'})
         .populate('recipes')
         .exec();
 
         res.render('user/show', {
             title: 'User Details',
+            recipes:allRecipes,
             user: foundUser,
         })
     } catch (err) {
         res.send(err)
     }
 });
+
+
+// Index GET route
+
+router.get('/:id/recipes',async (req,res)=>{
+    try{
+        const foundUser = await db.User.findById(req.params.id)
+        .populate('recipes')
+        .exec();
+        res.render('user/index',{
+            title:'My Recipe',
+            user:foundUser
+        })
+    }catch(err){
+        res.send(err)
+    }
+})
+
+
+
+
 
 
 module.exports = router;

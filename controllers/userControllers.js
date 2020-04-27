@@ -1,10 +1,48 @@
 const express = require('express')
 const router = express.Router();
+
+
+
 const db = require('../models')
 
+// GET new route
+router.get('/:id/new',async (req,res) =>{
+    try{
+        if(!req.session.currentUser){
+            return res.redirect('/auth/login')
+        }
+        const foundUser = await db.User.findById(req.session.currentUser)
+        res.render('user/new',{
+            user:foundUser,
+            title:'new recipe'
+        })
+    }catch(err){
+        res.send(err)
+    }
+})
+
+router.post('/',async (req,res)=>{
+    try{
+        if(!req.session.currentUser){
+            return res.redirect('/auth/login')
+        }
+        const newRecipe = await db.Recipe.create(req.body);
+        
+        const foundUser = await db.User.findById(req.body.user);
+
+        foundUser.recipes.push(newRecipe);
+        foundUser.save();
+        res.redirect(`user/${req.body.id}`)
+    }catch(err){
+        res.send(err)
+    }
+})
+
+
+// GET index router
 router.get('/:id', async (req,res)=>{
     try{
-        console.log(req.session._id)
+        
         if(!req.session.currentUser){
             return res.redirect('/auth/login')
         }
@@ -20,18 +58,6 @@ router.get('/:id', async (req,res)=>{
         res.send(err)
     }
 });
-
-router.get('/new',async (req,res) =>{
-    try{
-        if(!req.session.currentUser){
-            return res.redirect('/auth/login')
-        }
-        const foundUser = await db.User.findById(req.session.currentUser)
-    }catch(err){
-        res.send(err)
-    }
-})
-
 
 
 module.exports = router;

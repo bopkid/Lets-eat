@@ -1,12 +1,22 @@
 <%- include('../partials/_head') %>
 <main>
     <h1>Add New Recipe</h1>
-    <form action="/recipes" method="POST"> 
+    <form action="/user " method="POST"> 
         <div> 
             <label for="name">Name of Recipe</label><br />
             <input type='text' id="name" name="name"/> 
         </div>
         <br />
+
+
+
+        <label for="user">Author:</label>
+        <select name="user" id="user">
+            <option value="<%= user._id %>"><%= user.name %></option>
+        </select>
+        <br />
+
+
         <div> 
             <label for="typeOfMeal">Is this for Breakfast, Lunch, Dinner, or Dessert?</label><br />
             <input type='text' id="typeOfMeal" name="typeOfMeal"/> 

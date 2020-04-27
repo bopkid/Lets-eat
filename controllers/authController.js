@@ -75,10 +75,23 @@ router.post('/login', async (req,res) => {
     // Create Session
     // Authentication Part
     req.session.currentUser = user._id;
-    res.redirect(`/user/${req.session.currentUser}`);
+
+    res.redirect(`/users/${req.session.currentUser}`);
+ 
+
 } catch (error) {
     res.send(err);
 }
+})
+
+// GET Logout Destroy (Session) 
+router.get('/logout', async (req,res) => {
+    try{
+        await req.session.destroy();
+        res.redirect('/')
+    } catch (err) {
+        res.send(err)
+    }
 })
 
 

@@ -1,5 +1,83 @@
-<%-include('partials/_head')%>
-
-    <h1>Let's Eat Homepage</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"   href="/css/landing-page/style.css">
+    <title>Let's Eat | Homepage</title>
+</head>
+<body>
+    <div class = "first-block">
+        <span class = "first-block__logo">
+            <img src = /assets/logo.png>
+            <h3>Recipes catered to you.<br> Made by people like you. 
+                <br> Say Hello to your New Recipe Concierge.</h3> <br>
+                <div class = "login-button">
+                    <a href = '/auth/login'>Let's Cook</a>
+                </div>
+                <div class = "signup-button">
+                    <a href = '/auth/register'>Sign Me Up!</a>
+                </div>
+        </span>
+        <img class = "ingredients" src = /assets/fresh-ingredients.png width="40%" height="auto">
+    </div>
+    <div class="break"></div> 
+    <div class = "second-block">
+        <img src = /assets/asian.jpg class ="pancakes">
+        <span class = "second-block__information">
+            <h2> Think Twice About Going Out To Eat</h2>
+            <p>Enjoy delicious recipes from all over the world that you can make at home with simple ingredients. </p>
+        
+        <div class="share">
+            <!--  cover  -->
+              <span class="share__cover">
+                <i class="fas fa-share-alt"></i>
+                Share!
+              </span>
+            <!--  social icons  -->
+            <!--  facebook  -->
+              <a href="#" class="share__icon--facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            <!--  twitter  -->
+              <a href="#" class="share__icon--twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            <!--  instagram  -->
+              <a href="#" class="share__icon--instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            <!--  linkedin  -->
+              <a href="#" class="share__icon--linkedin">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+        </span>
+    </div>
     
-<%-include('partials/_footer')%>
+    <div class = "third-block">
+        <h2>How Let's Eat Works</h2>
+        <span class = "third-block__steps">
+            <span class = "third-block__steps-first">
+            <h3>Step 1 </h3> 
+            <p>Sign up <a href = '/auth/register/' target='_blank'>here</a>.<br> Complete your personal profile to your liking.</p>
+            <img class = "third-block__steps-icons" src = "/assets/user.png"> 
+        </span>
+        <span class = "third-block__steps-second">
+            <h3>Step 2</h3> 
+            <p> Next time you sign in, you will have 4 random recipes <br> sent to you based off your profile preference.</p>
+            <img class = "third-block__steps-icons" src = "/assets/list.png"> 
+            </span>
+            <span class = "third-block__steps-third">
+            <h3>Step 3</h3>
+            <p>Follow recipe instructions.<br> Enjoy.</p>
+            <img class = "third-block__steps-icons" src = "/assets/delicious-face.png"> 
+        </span>
+        </span>
+    </div>
+    <%-include('partials/_footer')%>
+</body>
+</html>
+ 
+
+<script type="text/javascript" src="/javascript/app.js"></script>

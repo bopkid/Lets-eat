@@ -33,7 +33,7 @@ router.post('/',async (req,res)=>{
         foundUser.recipes.push(newRecipe);
         foundUser.save();
         
-        res.redirect(`user/${req.body.id}`)
+        res.redirect(`user/${foundUser._id}`)
 
 
     }catch(err){
@@ -58,6 +58,29 @@ router.post('/',async (req,res)=>{
         res.send(err)
     }
 });
+
+// EDIT ROUTE
+router.get('/:id/edit', async (req,res) => {
+    try {
+    const foundUser = await db.User.findById(req.params.id)
+    res.render('user/edit', {
+        title: `Edit ${foundUser.name}`,
+        user: foundUser
+    })
+} catch (err) {
+    return res.send(err)
+}
+})
+
+// UPDATE EDIT POST
+router.put('/:id', async (req,res) => {
+    try {
+    const updatedUser = await db.User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.redirect(`/user/${req.params.id}`)
+    } catch (err) {
+        return res.send(err)
+    }
+})
 
 // DELETE ROUTE Destroy
 // :id is a property

@@ -1,17 +1,24 @@
+<link rel="stylesheet" type="text/css"   href="/css/index-recipe/style.css">
 <%-include('../partials/_head')%>
 
     <h1>Recipes Page</h1>
 
 
-        <section>
+    <section class = "recipe-index">
             <%recipes.forEach((recipe) => {%> 
-            <h4>
-                <a href="recipes/<%=recipe._id%>">
+                <section class = "recipe-container">
+            <h4>Name:</h4>
+                <p><a href="recipes/<%=recipe._id%>">
                     <%= recipe.name %> 
-                </a>
-            </h4> 
-            <% }) %>
+                </a></p>
+            <h4>Origin:</h4><p> <%=recipe.origin%> </p>
+            <h4>Ingredients:</h4><p> <%=recipe.ingredients%> </p>
+            <img src = "<%= recipe.url %>" alt="<%=recipe.name%> ">
         </section>
+            <% }) %>
+
+
+    </section>
 
 
     

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// require('mongoose-type-url')
+require('mongoose-type-url');
 
 
 
@@ -15,8 +15,8 @@ const RecipeSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
-    pic: {
-        type:String
+    url: {
+        type: mongoose.SchemaTypes.Url
     },
     origin: {
         type: String

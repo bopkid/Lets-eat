@@ -1,0 +1,49 @@
+:root {
+    --yellow: #F8B734;
+    --orange: #f78f29;
+    --blue:  #2B898B;
+    --green: #27704f;
+    --dark-grey: #213037;
+    --off-white: #f5f5f5;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+h1 {
+    text-align: center;
+}
+.recipe-index {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    /* Your container needs a fixed height, and it 
+     * needs to be taller than your tallest column. */
+    height: 600px; 
+}
+
+
+
+.recipe-container {
+    width: 32%;
+    margin-bottom: 2%; /* Optional */
+}
+
+.recipe-container img {
+    height: 70%;
+    width: 45%;
+}
+
+.recipe-container:nth-child(3n+1) { order: 1; }
+.recipe-container:nth-child(3n+2) { order: 2; }
+.recipe-container:nth-child(3n)   { order: 3; }
+
+/* Force new columns */
+.recipe-index::before,
+.recipe-index::after {
+  content: "";
+  flex-basis: 100%;
+  width: 0;
+  order: 2;
+}

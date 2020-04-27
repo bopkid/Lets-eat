@@ -14,3 +14,7 @@ function showSlides() {
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 
+
+const random = (max) =>{
+  return Math.floor(Math.random() * Math.floor(max))
+}

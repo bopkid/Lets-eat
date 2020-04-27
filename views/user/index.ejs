@@ -1,11 +1,18 @@
 <%- include('../partials/_head') %>
 
-<main>
-    
-    <button><a href="#">Random Recipes</a></button>
-    <button><a href="#">change Food Prefrence</a></button>
-    <h1><%=user.name %> name </h1>
-
-</main>
+    <%user.recipes.forEach((recipe) => {%> 
+        <ul>
+            <li>
+                 <a href = "/recipes/<%=recipe._id%>"><%=recipe.name%></a>
+                 <form action="/users/<%= recipe._id %> ?_method=DELETE" method="POST">
+                    <button type="submit">Delete Recipe</button>
+                </form>
+                <a href="/recipes/<%= recipe._id %>/edit">
+                    <button>Edit Recipe</button>
+                </a>
+            </li>
+        </ul> 
+    <% }) %> 
+</ul>
 
 <%- include('../partials/_footer') %>

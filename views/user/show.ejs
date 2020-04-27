@@ -15,29 +15,42 @@
             <p><%=user.name%></p>
 
             <h4>Radom Recipes:</h4>
-                <ul>
-                    <% 
-                    
+            <ul>
+                    <%
                      let num_of_recipe = 0;
                      let max = 4;
-                     let recipe_list = [];
+                     let num_picked = [];
                     
-                    if(recipes.length < 4){
+                    if(num_of_recipe.length  <=4){
                       
                      max = recipes.length;
                     }
-                        while(num_of_recipe < max ){
-                          let random = Math.floor((Math.random()*recipes.length))
-                          console.log(random)
-                            %> 
-                                <li><%= recipes[random].name%></li>
-                            <%
-                                 num_of_recipe++;
-                            console.log('hit recipe')
+                        while(num_picked.length < 4 ){
+                            if(recipes.length <  4 ){
+                                break;
+                            }
+                            console.log(recipes.length)
+                            console.log('here')
+                            console.log(num_of_recipe)
+                          let random = Math.floor(Math.random()*recipes.length) 
+                            
+                            if(num_picked.indexOf(random) === -1)num_picked.push(random)
+
+                            console.log(num_picked)
+                     
+                        }  
+                        for(let i = 0; i < num_picked.length ; i++) {%>
+                        
+                            <a href= "/recipes/<%= recipes[num_picked[i]]._id%> "   >
+                                 <li><%= recipes[num_picked[i]].name %> </li>
+                             </a>
                           
-                         
-                          }%>
-                </ul>
+                       <%   
+                         console.log(recipes[num_picked[i]]._id)}
+                        %>
+
+             </ul>
+          
             
             <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
         </section>

@@ -33,7 +33,7 @@ router.post('/',async (req,res)=>{
         foundUser.recipes.push(newRecipe);
         foundUser.save();
         
-        res.redirect(`user/${foundUser._id}`)
+        res.redirect(`users/${foundUser._id}`)
 
 
     }catch(err){
@@ -46,12 +46,14 @@ router.post('/',async (req,res)=>{
  try {
         const allRecipe = await db.Recipe.find()
         const foundUser = await db.User.findById(req.params.id)
+        const allRecipes = await db.Recipe.find({origin:'asian'})
         .populate('recipes')
         .exec();
 
         res.render('user/show', {
             recipes: allRecipe,
             title: 'User Details',
+            recipes:allRecipes,
             user: foundUser,
         })
     } catch (err) {

@@ -1,3 +1,4 @@
+
 const express = require('express')
 const bcrypt = require('bcryptjs')
 const router = express.Router();
@@ -76,7 +77,7 @@ router.post('/login', async (req,res) => {
     // Authentication Part
     req.session.currentUser = user._id;
 
-    res.redirect(`/users/${req.session.currentUser}`);
+    res.redirect(`/user/${req.session.currentUser}`);
  
 
 } catch (error) {

@@ -39,20 +39,37 @@ router.post('/',async (req,res)=>{
 })
 
 // Show route
-/*  router.get('/:id', async (req,res) => {
+ router.get('/:id', async (req,res) => {
  try {
+        const allRecipe = await db.Recipe.find()
         const foundUser = await db.User.findById(req.params.id)
         .populate('recipes')
         .exec();
 
         res.render('user/show', {
+            recipes: allRecipe,
             title: 'User Details',
             user: foundUser,
         })
     } catch (err) {
         res.send(err)
     }
-}); */
+});
+
+// DELETE ROUTE Destroy
+// :id is a property
+// :_id property of a record on a database
+router.delete('/:id', async (req,res) => {
+    try {
+    const deletedUser = await db.User.findByIdAndDelete(req.params.id)
+    const result = await db.Recipe.deleteMany({user: req.params.id})
+    console.log('Delete Many Result = ', result)
+    res.redirect('/')
+    }
+    catch (err) {
+        return res.send(err)
+    }
+})
 
 
 module.exports = router;

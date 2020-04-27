@@ -15,6 +15,7 @@ const methodOverride = require('method-override');
 
 // Port Activation
 const port = process.env.PORT || 4000;
+console.log('The Value of test = ', process.env.TEST)
 
 // Link public directory
 app.use(express.static(__dirname + '/public'));

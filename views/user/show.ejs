@@ -1,10 +1,16 @@
 <%-include('../partials/_head')%>
 
 <main>
-    <button><a href="/users/<%= user._id%>/new">Add New Recipes</a></button>
+    <button><a href="/user/<%= user._id%>/new">Add New Recipes</a></button>
     <h1>User Details</h1>
     
     <section>
+    <h4>Have you tried making this before?</h4>
+    <%recipes.forEach((recipe) => { %>
+        <%user.foodPreference.forEach((food) => {  %>
+            <% if(recipe.origin === food) { %>
+               <a href= "/recipes/<%=recipe._id%>"> <%= recipe.name %></a> 
+         <% }})}) %>
     <h4>Name:</h4> <p><%=user.name%></p>
         <h4>Recipes:</h4>
         <%user.recipes.forEach((recipe) => {%> 
@@ -14,10 +20,10 @@
 </section>
 
 <section>
-    <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
+    <form action = "/user/<%=user._id%>?_method=DELETE" method = "POST">
     <button type = 'submit'>Delete Account</button>
 </form>
-<a href = "/users/<%=user._id%>/edit">
+<a href = "/user/<%=user._id%>/edit">
     <button>Edit Account</button></a>
 </section>
 </main>

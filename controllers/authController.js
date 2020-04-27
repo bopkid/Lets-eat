@@ -75,7 +75,10 @@ router.post('/login', async (req,res) => {
     // Create Session
     // Authentication Part
     req.session.currentUser = user._id;
+
     res.redirect(`/user/${req.session.currentUser}`);
+ 
+
 } catch (error) {
     res.send(err);
 }

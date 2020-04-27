@@ -21,9 +21,11 @@ router.get('/', async(req,res)=>{
 
 router.get('/:id', async (req,res)=>{
     try{
-        const foundRecipe = await db.Recipe.findById(req.params.id)
+        const foundRecipe = await db.Recipe.findById(req.params.id);
+        const foundUser = await db.User.findById(foundRecipe.user);
         res.render('recipes/show',{
             recipe:foundRecipe, 
+            user:foundUser,
             title: 'Recipes'
         })
     }catch(err){

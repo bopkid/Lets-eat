@@ -8,9 +8,9 @@ const RecipeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    typeOfMeal: {
-        type: String
-    },
+    //typeOfMeal: {
+        //type: String
+    //},
     ingredients: {
         type: Array,
         required: true
@@ -25,7 +25,8 @@ const RecipeSchema = new mongoose.Schema({
         type: Number
     },
     direction: {
-        type: String
+        type: String,
+        required: true
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

@@ -6,17 +6,25 @@
 
     <section class = "recipe-index">
             <%recipes.forEach((recipe) => {%> 
+ 
                 <section class = "recipe-container">
-            <h4>Name:</h4>
+            <span class = "recipe-container__name"><h4>Name:</h4>
                 <p><a href="recipes/<%=recipe._id%>">
                     <%= recipe.name %> 
                 </a></p>
+            </span>
+            <span class = "recipe-container__origin">
             <h4>Origin:</h4><p> <%=recipe.origin%> </p>
+        </span>
+        <span class = "recipe-container__ingredients">
             <h4>Ingredients:</h4><p> <%=recipe.ingredients%> </p>
+        </span>
+            <span class = "images">
             <img src = "<%= recipe.url %>" alt="<%=recipe.name%> ">
+        </span>
         </section>
             <% }) %>
-
+        </section>
 
     </section>
 

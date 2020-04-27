@@ -25,3 +25,7 @@ randomRecipe.addEventListener('click', function(){
   randomNoRepeats(recipeName)
 });
 
+
+const random = (max) =>{
+  return Math.floor(Math.random() * Math.floor(max))
+}

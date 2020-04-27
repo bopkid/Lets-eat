@@ -189,12 +189,12 @@ body {
   }
 
 .third-block {
-    background-color: var(--blue);
+    color: var(--off-white);
     text-align: center;
     height: 50vh;
     width: 100%;
     padding-top: 5%;
-    color: var(--off-white);
+    background: linear-gradient(to right, var(--green), var(--blue));
 }
 
 .third-block__steps {

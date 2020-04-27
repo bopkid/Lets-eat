@@ -1,20 +1,25 @@
+<link rel="stylesheet" type="text/css"   href="/css/login-page/style.css">
 <%- include('../partials/_head') %>
 <%if (typeof error !== "undefined") { %>
     <%=error%>
 <% } %>
 <main>
+    <section class = "login">
     <h1>Login</h1>
     <form action="/auth/login" method="POST"> 
         <div>
-            <label for="email">Email</label>
-            <input type='text' id="email" name="email"/> 
+            <input type='text' placeholder = "Email" id="email" name="email"/> 
         </div>
         <div>
-            <label for="password">Password</label>
-            <input type='text' id="password" name="password"/> 
+            <input type='text' placeholder="Password" id="password" name="password"/> 
         </div>
-
-        <input type="submit" value= "Login">
+        <section class = "login__button">
+        <button type="submit" value= "Login">What Should I Eat Today? </button>
+    </section>
     </form>
+</section>
+<section class = "login__picture--container">
+<img class= "login__picture" src = "/assets/homecooking.jpg">
+</section>
 </main>
 <%- include('../partials/_footer') %>

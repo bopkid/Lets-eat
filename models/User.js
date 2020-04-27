@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-
-
+require('mongoose-type-url');
 
 const UserSchema = new mongoose.Schema({
     username:{

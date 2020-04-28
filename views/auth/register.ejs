@@ -4,12 +4,6 @@
     <section class = "sign-up__form">
     <h1>Sign Up</h1>
     <form action="/auth/register" method="POST"> 
-
-        <div>
-            <label for="username">Username</label>
-            <input type='text' id="username" name="username"/> 
-        </div>
-
         <div>
             <input class = "sign-up__form--non-checkbox" type='text' id="name" placeholder="Name" name="name"/> 
         </div>
@@ -21,10 +15,7 @@
             <label for="isProfessionalChef">No</label>
         </div>
         <div>
-
-            <label for="foodPreference">What is your Favorite Type of Cuisine?</label>
-            
-
+            <label for="foodPreference">What is your Favorite Type of Cuisine?</label> <br>
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Asian"/> 
             <label for="foodPreference">Asian</label>
 
@@ -36,6 +27,9 @@
 
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
             <label for="foodPreference">Mediteranean</label>
+        </div>
+        <div>
+            <input class = "sign-up__form--non-checkbox" type='text' id="username" placeholder="Username" name="username"/> 
         </div>
         <div>
             <input class = "sign-up__form--non-checkbox" type='text' id="email" placeholder="Email" name="email"/> 

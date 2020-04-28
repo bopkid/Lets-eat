@@ -19,13 +19,14 @@ router.get('/', async(req,res)=>{
     }
 })
 
+// SHOW route
 router.get('/:id', async (req,res)=>{
     try{
         const foundRecipe = await db.Recipe.findById(req.params.id);
         const foundUser = await db.User.findById(foundRecipe.user);
         res.render('recipes/show',{
             recipe:foundRecipe, 
-            user:foundUser,
+            user: foundUser,
             title: 'Recipes'
         })
     }catch(err){
@@ -50,6 +51,19 @@ router.get('/:id/edit', async (req,res)=>{
         res.send(err)
     }
 })
+
+// UPDATE EDIT POST
+router.put('/:id', async (req,res) => {
+    try {
+    const updatedRecipe = await db.Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.redirect(`/recipes/${req.params.id}`)
+    } catch (err) {
+        return res.send(err)
+    }
+})
+
+
+
 
 
 

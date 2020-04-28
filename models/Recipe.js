@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-// require('mongoose-type-url')
-
+require('mongoose-type-url');
 
 
 const RecipeSchema = new mongoose.Schema({
@@ -8,15 +7,19 @@ const RecipeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    typeOfMeal: {
-        type: String
-    },
+    //typeOfMeal: {
+        //type: String
+    //},
     ingredients: {
         type: Array,
         required: true
     },
-    pic: {
-        type:String
+    url: {
+        type: String,
+        ref:'url'
+    },
+    ratings: {
+        type: [Number]
     },
     origin: {
         type: String
@@ -25,7 +28,8 @@ const RecipeSchema = new mongoose.Schema({
         type: Number
     },
     direction: {
-        type: String
+        type: String,
+        required: true
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -34,6 +38,18 @@ const RecipeSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-const Recipe = mongoose.model('Recipe', RecipeSchema);
+RecipeSchema.virtual('avgRating')
+  .get(function() {
+    let avgRating = 0;
+    let sum = 0
+    this.ratings.forEach((rating)=> {
+      sum+=rating;
+    })
+    if(sum>0) {
+      avgRating = (sum/this.ratings.length).toFixed(1)
+    }
+    return avgRating;
+  })
 
+const Recipe = mongoose.model('Recipe', RecipeSchema);
 module.exports = Recipe;

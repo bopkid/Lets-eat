@@ -16,7 +16,8 @@ const RecipeSchema = new mongoose.Schema({
         required: true
     },
     url: {
-        type: mongoose.SchemaTypes.Url
+        type: String,
+        ref:'url'
     },
     origin: {
         type: String

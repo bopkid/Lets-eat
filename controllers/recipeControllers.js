@@ -26,7 +26,7 @@ router.get('/:id', async (req,res)=>{
         const foundUser = await db.User.findById(foundRecipe.user);
         res.render('recipes/show',{
             recipe:foundRecipe, 
-            user:foundUser,
+            user: foundUser,
             title: 'Recipes'
         })
     }catch(err){

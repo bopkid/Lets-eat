@@ -9,10 +9,12 @@
         </button>
 
         <h1>User Details</h1>
-        
-        <section>
+        <div class="row m-5">
+
             <h4>Name:</h4> 
             <p><%=user.name%></p>
+        </div>
+        <section>
             <h4>Random Recipes:</h4>
             <ul>
                     <%
@@ -55,12 +57,14 @@
             <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
         </section>
 
+
+
         <section>
             <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
                 <button type = 'submit'>Delete Account</button>
             </form>
             <a href = "/users/<%=user._id%>/edit">
-            <button>Edit Account</button></a>
+            <button>Edit Preferences</button></a>
         </section>
     </main>
     

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 require('mongoose-type-url');
 
+const User = require('./User')
 
 const RecipeSchema = new mongoose.Schema({
     name: {

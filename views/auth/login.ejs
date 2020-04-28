@@ -1,5 +1,13 @@
 <link rel="stylesheet" type="text/css"   href="/css/login-page/style.css">
-<%- include('../partials/_head') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Eat | <%=title%> </title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,900;1,300;1,600&display=swap" rel="stylesheet">
+</head>
+<header>
 <%if (typeof error !== "undefined") { %>
     <%=error%>
 <% } %>
@@ -22,4 +30,8 @@
 <img class= "login__picture" src = "/assets/homecooking.jpg">
 </section>
 </main>
-<%- include('../partials/_footer') %>
+<footer>
+    &copy; 2020 Let's Eat.
+</footer>
+</body>
+</html>

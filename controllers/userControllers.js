@@ -44,8 +44,9 @@ router.post('/',async (req,res)=>{
 // Show route
  router.get('/:id', async (req,res) => {
  try {
-        const allRecipe = await db.Recipe.find()
         const foundUser = await db.User.findById(req.params.id)
+        const allRecipe = await db.Recipe.find({origin:foundUser.foodPreference })
+        
         .populate('recipes')
         .exec();
 

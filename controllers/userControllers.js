@@ -64,6 +64,7 @@ router.post('/',async (req,res)=>{
 router.get('/:id/edit', async (req,res) => {
     try {
     const foundUser = await db.User.findById(req.params.id)
+
     res.render('user/edit', {
         title: `Edit ${foundUser.name}`,
         user: foundUser
@@ -76,6 +77,11 @@ router.get('/:id/edit', async (req,res) => {
 // UPDATE EDIT POST
 router.put('/:id', async (req,res) => {
     try {
+        if (req.body.isProfessionalChef === 'on'){
+            req.body.isProfessionalChef = true
+        } else {
+            req.body.isProfessionalChef = false
+        }
     const updatedUser = await db.User.findByIdAndUpdate(req.params.id, req.body, {new: true});
     res.redirect(`/users/${req.params.id}`)
     } catch (err) {

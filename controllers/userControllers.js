@@ -33,7 +33,7 @@ router.post('/',async (req,res)=>{
         foundUser.recipes.push(newRecipe);
         foundUser.save();
         
-        res.redirect(`users/${foundUser._id}`)
+        res.redirect(`/users/${foundUser._id}`)
 
 
     }catch(err){
@@ -44,12 +44,15 @@ router.post('/',async (req,res)=>{
 // Show route
  router.get('/:id', async (req,res) => {
  try {
+    if (!req.session.currentUser){
+        // If no req.session.currentUser, you are not authenticated, and therefore not authorized to access this resource
+        return res.redirect('/auth/login');
+    }
         const foundUser = await db.User.findById(req.params.id)
         const allRecipe = await db.Recipe.find({origin:foundUser.foodPreference })
         
         .populate('recipes')
         .exec();
-
         res.render('user/show', {
             recipes: allRecipe,
             title: 'User Details',
@@ -109,9 +112,8 @@ router.delete('/:id', async (req,res) => {
 
 router.get('/:id/recipes',async (req,res)=>{
     try{
-        const foundUser = await db.User.findById(req.params.id)
-        .populate('recipes')
-        .exec();
+        const foundUser = await db.User.findById(req.params.id).populate('recipes').exec()
+        console.log(foundUser.recipes.name)
         res.render('user/index',{
             title:'My Recipe',
             user:foundUser

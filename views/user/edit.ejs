@@ -4,9 +4,6 @@
     <h1>Edit <%=user.name%></h1>
     <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
         <div>
-            <input class = "sign-up__form--non-checkbox" type='text' id="name" placeholder ="<%=user.name%>"placeholder="Name" name="name"/> 
-        </div>
-        <div>
             <label for="isProfessionalChef">Are you a Professional Chef?</label>
             <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" /> 
             <label for="isProfessionalChef">Yes</label>
@@ -34,12 +31,6 @@
         </div>
         <div>
             <input class = "sign-up__form--non-checkbox" value="<%=user.email%>" type='text' id="email" placeholder="Email" name="email"/> 
-        </div>
-        <div>
-            <input class = "sign-up__form--non-checkbox"type='text' id="password" placeholder="Enter Password" name="password"/> 
-        </div>
-        <div>
-            <input class = "sign-up__form--non-checkbox" type='text' id="password2" placeholder="Confirm Password" name="password2"/> 
         </div>
         <section class ="sign-up__form--button">
         <button type="submit" value= "Register">Let's Start Cooking!</button> 

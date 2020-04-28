@@ -20,17 +20,13 @@
                      let max = 4;
                      let num_picked = [];
                     
-                    if(num_of_recipe.length  <=4){
+                    if(recipes.length  <=4){
                       
                      max = recipes.length;
                     }
-                        while(num_picked.length < 4 ){
-                            if(recipes.length <  4 ){
-                                break;
-                            }
-                            console.log(recipes.length)
-                            console.log('here')
-                            console.log(num_of_recipe)
+                        while(num_picked.length < max ){
+                          
+                       
                           let random = Math.floor(Math.random()*recipes.length) 
                             
                             if(num_picked.indexOf(random) === -1)num_picked.push(random)
@@ -50,6 +46,7 @@
              </ul>
              
           <h4> Other Recipes You Might Like: </h4>
+
           <p><%recipes.forEach((recipe) => { %>
        <%user.foodPreference.forEach((food) => {  %>
            <% if(recipe.origin === food) { %>

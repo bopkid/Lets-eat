@@ -13,7 +13,7 @@
         <section>
             <h4>Name:</h4> 
             <p><%=user.name%></p>
-            <h4>Radom Recipes:</h4>
+            <h4>Random Recipes:</h4>
             <ul>
                     <%
                      let num_of_recipe = 0;
@@ -44,12 +44,13 @@
                          console.log(recipes[num_picked[i]]._id)}
                         %>
              </ul>
+             
           <h4> Other Recipes You Might Like: </h4>
 
           <p><%recipes.forEach((recipe) => { %>
        <%user.foodPreference.forEach((food) => {  %>
            <% if(recipe.origin === food) { %>
-                <a href="/recipes/`${recipe._id}`"><%= recipe.name %></a>
+                <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
         <% }})}) %></p>
             <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
         </section>

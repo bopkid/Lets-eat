@@ -2,19 +2,21 @@
 <main>
     <section class = "sign-up__form">
     <h1>Edit <%=user.name%></h1>
-    <form action="/auth/register" method="POST"> 
+    <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
         <div>
-            <input class = "sign-up__form--non-checkbox" type='text' id="name" placeholder="Name" name="name"/> 
+            <input class = "sign-up__form--non-checkbox" type='text' id="name" placeholder ="<%=user.name%>"placeholder="Name" name="name"/> 
         </div>
         <div>
             <label for="isProfessionalChef">Are you a Professional Chef?</label>
             <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef"/> 
             <label for="isProfessionalChef">Yes</label>
-            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" value="null"/> 
+            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef"/> 
             <label for="isProfessionalChef">No</label>
         </div>
         <div>
-            <label for="foodPreference">What is your Favorite Type of Cuisine?</label> <br>
+            <label>You're current favorite cuisines</label>
+            <p><%=user.foodPreference%></p>
+            <label for="foodPreference">Would you like to edit your favorite cuisines?</label> <br>
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Asian"/> 
             <label for="foodPreference">Asian</label>
 
@@ -28,10 +30,10 @@
             <label for="foodPreference">Mediteranean</label>
         </div>
         <div>
-            <input class = "sign-up__form--non-checkbox" type='text' id="username" placeholder="Username" name="username"/> 
+            <input class = "sign-up__form--non-checkbox" value="<%=user.username%>" type='text' id="username" placeholder="Username" name="username"/> 
         </div>
         <div>
-            <input class = "sign-up__form--non-checkbox" type='text' id="email" placeholder="Email" name="email"/> 
+            <input class = "sign-up__form--non-checkbox" value="<%=user.email%>" type='text' id="email" placeholder="Email" name="email"/> 
         </div>
         <div>
             <input class = "sign-up__form--non-checkbox"type='text' id="password" placeholder="Enter Password" name="password"/> 

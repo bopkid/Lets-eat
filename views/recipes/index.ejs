@@ -1,10 +1,14 @@
+
 <link rel="stylesheet" type="text/css"   href="/css/index-recipe/style.css">
+
+
+
+
 <%-include('../partials/_head')%>
 
     <h1>Recipes Page</h1>
 
-
-    <section class = "recipe-index">
+        <section class = "recipe-index">
             <%recipes.forEach((recipe) => {%> 
  
                 <section class = "recipe-container">
@@ -22,12 +26,26 @@
             <span class = "images">
             <img src = "<%= recipe.url %>" alt="<%=recipe.name%> ">
         </span>
+        <span class = "recipe-container__ratings">
+            <h4>Ratings:</h4><p><%=recipe.avgRating%></p>
+        </span>
+        <br>
+        <section class = "recipe-container__ratings--add">
+          <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+            <label for="ratings">Rating</label>
+            <select name="ratings" id="ratings">
+              <option value="" disabled selected>Please select ...</option>
+              <% for (let i=5; i>0; i--) { %>
+              <option value=<%= i %>><%= i %></option>
+              <% } %>
+            </select>
+            <button type="submit">Rate Recipe</button>
+          </form>
         </section>
-            <% }) %>
+
         </section>
+        <% }) %>
 
-    </section>
 
 
-    
 <%-include('../partials/_footer')%>

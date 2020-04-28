@@ -27,7 +27,7 @@ router.post('/',async (req,res)=>{
             return res.redirect('/auth/login')
         }
         const newRecipe = await db.Recipe.create(req.body);
-        
+
         const foundUser = await db.User.findById(req.body.user);
 
         foundUser.recipes.push(newRecipe);

@@ -29,7 +29,7 @@ const RecipeSchema = new mongoose.Schema({
         type: Number
     },
     direction: {
-        type: String,
+        type: Array,
         required: true
     },
     user: {

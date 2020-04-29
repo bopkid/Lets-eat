@@ -15,21 +15,20 @@
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
         <br />
-        <label for="ingredients">Ingredients Needed to make this Recipe </label>
+      
         <button type ="menu" class= 'new-ingredient-btn' >new ingredients</button><br />
         <div class = 'ingredients'>
-
-            <textarea class="new-ingredients" name="ingredients"  rows="1" cols="25"></textarea>
+            <label for="ingredients">Ingredients Needed to make this Recipe </label><br/>
+            <textarea class="new-ingredients" id = 'ingredients' name="ingredients"  rows="1" cols="25"></textarea>
         
         </div>
 
-        <div>
-            <label for="direction">Directions for this Recipe </label>
-      
-            <button type ="menu" class= 'new-dierections-btn' >new dierections</button><br />
-            <div class = 'dierections'>
+        <button type ="menu" class= 'new-direction-btn' >new dierections</button><br />
 
-                <textarea  class = 'new-dierections' name="direction"  rows="5" cols="70"></textarea>
+        <div>
+            <div class = 'directions'>   
+                <label for="direction">Directions for this Recipe </label><br/>
+                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="70"></textarea>
              </div>
         </div>
 

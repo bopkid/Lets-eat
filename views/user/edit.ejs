@@ -1,8 +1,11 @@
+
 <%- include('../partials/_head') %>
 <link rel="stylesheet" href="/css/edit-user/style.css">
 
+
 <main>
     <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
+
         <section class="d-flex justify-content-center">
             <div class="card" style="width: 30rem;">
                 <div class="card-body">
@@ -44,3 +47,5 @@
             </form>
             </main>
             <%- include('../partials/_footer') %>
+
+

@@ -1,5 +1,8 @@
-<%- include('../partials/_head') %>
-<link rel="stylesheet" href="/css/new-user/style.css">
+
+<%- include('../partials/_head', {user:user_id}) %>
+<link rel="stylesheet" href="/css/recipe-new/style.css">
+<script src = '/new.js' defer></script>
+
 <main>
 
     <form action="/users " method="POST"> 
@@ -15,11 +18,37 @@
           <select name="user" id="user">
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
-          <li class="list-group-item">Ingredients Needed to make this Recipe </li>
-          <textarea id="ingredients" name="ingredients"></textarea>
-       
-        <li class="list-group-item">Directions for this Recipe </li>
-        <textarea id="direction" name="direction"></textarea>
+
+        <br />
+      
+        <button type ="menu" class= 'new-ingredient-btn' >new ingredients</button><br />
+        <div class = 'ingredients'>
+            <label for="ingredients">Ingredients Needed to make this Recipe </label><br/>
+            <textarea class="new-ingredients" id = 'ingredients' name="ingredients"  rows="1" cols="25"></textarea>
+        
+        </div>
+
+        <button type ="menu" class= 'new-direction-btn' >new dierections</button><br />
+
+        <div>
+            <div class = 'directions'>   
+                <label for="direction">Directions for this Recipe </label><br/>
+                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="70"></textarea>
+             </div>
+        </div>
+
+        <div>
+            <label for="url">Place Image Link Here</label>
+            <input type = 'url' id="url" name="url"/> 
+        </div>
+        
+        <div>
+            <label for="origin">What culture does this recipe belong to?</label> <br>
+            <input type='checkbox' id="origin" name="origin" value="Asian"/> 
+            <label for="origin">Asian</label>
+
+            <input type='checkbox' id="origin" name="origin" value="American"/> 
+            <label for="origin">American</label>
 
         <li class="list-group-item">Place Image Link Here</li>
         <input type = 'url' id="url" name="url"/> 

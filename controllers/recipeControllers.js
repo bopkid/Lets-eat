@@ -9,7 +9,6 @@ const db = require('../models')
 
 router.get('/', async(req,res)=>{
     try{
-        const foundUser = await db.User.find(req.sessions.currentUser)
     const allRecipes = await db.Recipe.find()
     res.render('recipes/index',{
         recipes: allRecipes,

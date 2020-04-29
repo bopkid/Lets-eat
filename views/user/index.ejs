@@ -1,18 +1,37 @@
 <%- include('../partials/_head',{user:user._id}) %>
+<link rel="stylesheet" href="/css/index-user/style.css">
 
+<div class="row m-5 name">
+    <h1>Your Recipes</h1>
+</div>
+
+<section  class = 'container'>
+    <div class = 'row'>
     <%user.recipes.forEach((recipe) => {%> 
-        <ul>
-            <li>
-                 <a href = "/recipes/<%=recipe._id%>"><%=recipe.name%></a>
+        <div class="col col-md-3 m-4">
+            <div class="card" style="width: 18rem;">
+                <img src="<%= recipe.url%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
+                    </h5>
+                    <p class="card-text"> 
+                        Origin: <%= recipe.origin%>
+                     </p>
+                     <p class="card-text"> 
+                        Ratings: <%= recipe.avgRating%>
+                     </p>
                  <form action="/users/<%= recipe._id %>/recipes?_method=DELETE" method="POST">
-                    <button type="submit">Delete Recipe</button>
+                    <button class = "btn" type="submit">Delete Recipe</button>
                 </form>
                 <a href="/recipes/<%= recipe._id %>/edit">
-                    <button>Edit Recipe</button>
+                    <button class = "btn">Edit Recipe</button>
                 </a>
-            </li>
-        </ul> 
+             </div>
+             </div>
+        </div>
     <% }) %> 
-</ul>
+            </div>
+        </section>
 
 <%- include('../partials/_footer') %>

@@ -1,14 +1,21 @@
-<%- include('../partials/_head') %>
+<%- include('../partials/_head' , {user_id:user._id}) %>
 <main>
     <section class = "sign-up__form">
     <h1>Edit <%=user.name%></h1>
     <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
         <div>
+            <input class = "sign-up__form--non-checkbox" type='text' id="name" value ="<%=user.name%>"placeholder="Name" name="name"/> 
+        </div>
+        <div>
             <label for="isProfessionalChef">Are you a Professional Chef?</label>
-            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" /> 
-            <label for="isProfessionalChef">Yes</label>
-            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" value = "null"/> 
-            <label for="isProfessionalChef">No</label>
+            <div> 
+                <input type='radio' id="isProfessionalChef" name="isProfessionalChef" id= 'yes-chef'/> 
+                <label for="yes-chef" unselectable>Yes</label>
+            </div>
+            <div> 
+                <input type='radio' id="isProfessionalChef" name="isProfessionalChef" id ='no-chef'/> 
+                <label for="no-chef" unselectable>No</label>
+            </div>
         </div>
         <div>
             <label>You're current favorite cuisines</label>

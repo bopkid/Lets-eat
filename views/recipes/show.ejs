@@ -1,4 +1,4 @@
-<%- include('../partials/_head',) %>
+<%- include('../partials/_head',{user_id:user_id}) %>
 <main>
     <h1>Recipe Details</h1>
     <section>
@@ -20,10 +20,20 @@
 
 
         <h4>Ingredients Needed:</h4>
-        <p><%=recipe.ingredients%></p>
+        <ul>
+            <% for( let i = 0; i < recipe.ingredients.length; i++ ) { %>
+                <li><%= recipe.ingredients[i] %> </li>
+            <% } %>
+         </ul>
+       
 
         <h4>Directions:</h4>
-        <p><%=recipe.direction%></p>
+        <ol>
+            <% for( let i = 0; i < recipe.direction.length; i++ ) { %>
+                <li><%= recipe.direction[i] %> </li>
+            <% } %>
+         </ol>
+       
 
         <h4>Posted:</h4>
         <p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>

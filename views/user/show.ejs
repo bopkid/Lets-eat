@@ -1,4 +1,4 @@
-<%-include('../partials/_head')%>
+<%-include('../partials/_head', {user_id:user._id})%>
 <script type = "text/javascript" src="/javascript/app.js" defer></script>
 <link rel="stylesheet" href="/css/show-user/style.css">
     <main>
@@ -49,18 +49,20 @@
                             <div class="card ml-3" style="width: 18rem;">
                                 <img src="<%= recipes[num_picked[i]].url%>" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text"><a href= "/recipes/<%= recipes[num_picked[i]]._id%> "  >  
-                                    <span>Recipe Name:<%= recipes[num_picked[i]].name %> </span> <br/>
+                                    <p class="card-text">
+                                        <a href= "/recipes/<%= recipes[num_picked[i]]._id%> "  >  
+                                        <span>Recipe Name:<br/>
+                                            <%= recipes[num_picked[i]].name %> 
+                                            </span> <br/>
+                                    </a>
                                     <span>Origin:<%= recipes[num_picked[i]].origin%> </span> 
                                    
                                     </p>
                                 </div>
                             </div>
-                       
-                        
-                          
                        <%   
-                         console.log(recipes[num_picked[i]]._id)}
+                         console.log(recipes[num_picked[i]]._id)
+                        }
                         %>
         </section>
         <h4> Other Recipes You Might Like: </h4>
@@ -70,7 +72,7 @@
             <%user.foodPreference.forEach((food) => {  %>
               <% if(recipe.origin === food) { %>
                 <div class="card" style="width: 18rem;">
-                    <img src="<%= recipe.url%>" class="card-img-top" alt="...">
+                    <img src="<%= recipe.url%>" class="card-img-top" alt="food picture">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
@@ -78,12 +80,11 @@
                         <p class="card-text"> 
                             Origin:<%= recipe.origin%>
                          </p>
-
-                   
                     </div>
                 </div>
-          
-             <% }})}) %></p>
+             <% }
+            })
+        }) %></p>
             
         </section>
 

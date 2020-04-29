@@ -12,8 +12,9 @@ router.get('/', async(req,res)=>{
         const foundUser = await db.User.find(req.sessions.currentUser)
     const allRecipes = await db.Recipe.find()
     res.render('recipes/index',{
-        recipe: allRecipes,
-        title: 'Recipes'
+        recipes: allRecipes,
+        title: 'Recipes',
+        
     })
     }catch(err){
         res.send(err)
@@ -23,12 +24,14 @@ router.get('/', async(req,res)=>{
 // SHOW route
 router.get('/:id', async (req,res)=>{
     try{
+        console.log(req.session.currentUser)
         const foundRecipe = await db.Recipe.findById(req.params.id);
         const foundUser = await db.User.findById(foundRecipe.user);
         res.render('recipes/show',{
             recipe:foundRecipe, 
             user: foundUser,
-            title: 'Recipes'
+            title: 'Recipes',    
+             
         })
     }catch(err){
         res.send(err)
@@ -46,7 +49,8 @@ router.get('/:id/edit', async (req,res)=>{
 
         res.render('recipes/edit',{
             recipe:foundRecipe,
-            title:'Edie recipe'
+            title:'Edie recipe',
+        
         })
     }catch(err){
         res.send(err)

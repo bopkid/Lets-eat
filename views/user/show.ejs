@@ -1,22 +1,30 @@
 <%-include('../partials/_head')%>
 <script type = "text/javascript" src="/javascript/app.js" defer></script>
+<link rel="stylesheet" href="/css/show-user/style.css">
     <main>
-        <button>
+        <button class = 'btn'>
             <a href="/users/<%= user._id%>/new">Add New Recipes</a>
         </button>
-        <button>
+
+        <button class = 'btn'>
             <a href="/users/<%= user._id%>/recipes">My Recipes</a>
         </button>
+      
+            <button class="btn"> 
+                 <a href = "/users/<%=user._id%>/edit">
+                    Edit Preferences 
+                </a>
+            </button>
+        
+        <div class="row m-5  name">
 
-        <h1>User Details</h1>
-        <div class="row m-5">
-
-            <h4>Name:</h4> 
-            <p><%=user.name%></p>
+                <h2 >Hello <%=user.name%></h2>
+         
         </div>
-        <section>
-            <h4>Random Recipes:</h4>
-            <ul>
+         <h4>Random Recipes:</h4>
+        <section class = 'd-flex justify-content-between'>
+           
+            
                     <%
                      let num_of_recipe = 0;
                      let max = 4;
@@ -38,33 +46,57 @@
                         }  
                         for(let i = 0; i < num_picked.length ; i++) {%>
                         
-                            <a href= "/recipes/<%= recipes[num_picked[i]]._id%> "   >
-                                 <li><%= recipes[num_picked[i]].name %> </li>
-                             </a>
+                            <div class="card ml-3" style="width: 18rem;">
+                                <img src="<%= recipes[num_picked[i]].url%>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text"><a href= "/recipes/<%= recipes[num_picked[i]]._id%> "  >  
+                                    <span>Recipe Name:<%= recipes[num_picked[i]].name %> </span> <br/>
+                                    <span>Origin:<%= recipes[num_picked[i]].origin%> </span> 
+                                   
+                                    </p>
+                                </div>
+                            </div>
+                       
+                        
                           
                        <%   
                          console.log(recipes[num_picked[i]]._id)}
                         %>
-             </ul>
-             
-          <h4> Other Recipes You Might Like: </h4>
-
-          <p><%recipes.forEach((recipe) => { %>
-       <%user.foodPreference.forEach((food) => {  %>
-           <% if(recipe.origin === food) { %>
-                <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
-        <% }})}) %></p>
-            <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
         </section>
+        <h4> Other Recipes You Might Like: </h4>
+         <section  class = 'd-flex justify-content-between'>
+        
+          <p><%recipes.forEach((recipe) => { %>
+            <%user.foodPreference.forEach((food) => {  %>
+              <% if(recipe.origin === food) { %>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= recipe.url%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
+                        </h5>
+                        <p class="card-text"> 
+                            Origin:<%= recipe.origin%>
+                         </p>
+
+                   
+                    </div>
+                </div>
+          
+             <% }})}) %></p>
+            
+        </section>
+
+        <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
+
 
 
 
         <section>
             <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
-                <button type = 'submit'>Delete Account</button>
+                <button class = 'btn' type = 'submit'>Delete Account</button>
             </form>
-            <a href = "/users/<%=user._id%>/edit">
-            <button>Edit Preferences</button></a>
+
         </section>
     </main>
     

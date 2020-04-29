@@ -1,0 +1,32 @@
+:root {
+    --yellow: #F8B734;
+    --orange: #f78f29;
+    --blue:  #2B898B;
+    --green: #27704f;
+    --dark-grey: #213037;
+    --off-white: #f5f5f5;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+main {
+    background: linear-gradient(to right, var(--green), var(--blue));
+}
+.card {
+    text-align: center;
+}
+
+.checkbox {
+    margin: 10px;
+}
+
+.checkbox label {
+    margin: 2%;
+}
+

@@ -1,19 +1,24 @@
+
 <%- include('../partials/_head', {user:user_id}) %>
 <link rel="stylesheet" href="/css/recipe-new/style.css">
 <script src = '/new.js' defer></script>
-<main>
-    <h1>Add New Recipe</h1>
-    <form action="/users " method="POST"> 
-        <div> 
-            <label for="name">Name of Recipe</label><br />
-            <input type='text' id="name" name="name"/> 
-        </div>
-        <br />
 
-        <label for="user">Author:</label>
-        <select name="user" id="user">
+<main>
+
+    <form action="/users " method="POST"> 
+    <section class="d-flex justify-content-center">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h3 class="card-title">Add New Recipe</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name of Recipe </li>
+            <textarea id="name" name="ingredients"></textarea>
+          <li class="list-group-item">Author</li>
+          <select name="user" id="user">
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
+
         <br />
       
         <button type ="menu" class= 'new-ingredient-btn' >new ingredients</button><br />
@@ -45,19 +50,28 @@
             <input type='checkbox' id="origin" name="origin" value="American"/> 
             <label for="origin">American</label>
 
-            <input type='checkbox' id="origin" name="origin" value="Indian"/> 
-            <label for="origin">Indian</label>
-
-            <input type='checkbox' id="origin" name="origin" value="Mediterranean"/> 
-            <label for="origin">Mediteranean</label>
-        </div>
-
-        <div>
-            <label for="serving">How many people can this recipe feed?</label>
-            <input type='number' id="serving" name="serving"/> 
-        </div>
+        <li class="list-group-item">Place Image Link Here</li>
+        <input type = 'url' id="url" name="url"/> 
+        <li class="list-group-item">What culture does this recipe belong to?
+        <section class="checkbox">
+        <label for="origin">Asian</label>
+        <input type='checkbox' id="origin" name="origin" value="Asian"/> 
+    
+        <label for="origin">American</label>
+        <input type='checkbox' id="origin" name="origin" value="American"/> 
         
-        <button type="submit">Add New Recipe</button> 
+        <label for="origin">Indian</label>
+        <input type='checkbox' id="origin" name="origin" value="Indian"/> 
+       
+        <label for="origin">Mediteranean</label>
+        <input type='checkbox' id="origin" name="origin" value="Mediterranean"/> 
+    </section>
+</li> 
+    </ul>
+          <button type="submit">Add New Recipe</button> 
+      </div>
     </form>
+        
+</section>
 </main>
 <%- include('../partials/_footer') %>

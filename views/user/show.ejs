@@ -65,12 +65,15 @@
                         }
                         %>
         </section>
-        <h4> Other Recipes You Might Like: </h4>
-         <section  class = 'd-flex justify-content-between'>
         
-          <p><%recipes.forEach((recipe) => { %>
+        <section class="more-recipes">
+        <h4> Other Recipes You Might Like: </h4>
+         <section  class = 'container'>
+        <div class="row">
+          <%recipes.forEach((recipe) => { %>
             <%user.foodPreference.forEach((food) => {  %>
               <% if(recipe.origin === food) { %>
+                <div class="col col-md-3 m-4">
                 <div class="card" style="width: 18rem;">
                     <img src="<%= recipe.url%>" class="card-img-top" alt="food picture">
                     <div class="card-body">
@@ -79,15 +82,16 @@
                         </h5>
                         <p class="card-text"> 
                             Origin:<%= recipe.origin%>
+
                          </p>
                     </div>
                 </div>
              <% }
             })
         }) %></p>
-            
-        </section>
 
+        </section>
+    </section>
         <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
 
 

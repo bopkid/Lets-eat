@@ -11,6 +11,7 @@ const db = require('../models')
 router.get('/register', (req,res)=>{
     res.render('auth/register', {
         title: 'Register',
+        
     })
 });
 

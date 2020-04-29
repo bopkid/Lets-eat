@@ -31,7 +31,7 @@ III. When the user  click on Sign Me up they will be taken to the register page 
 
 IV. When they log into their account the user see 4 random recipes based on their food prefrence  as well as a add new recipe, show their recipes. As welll as two button on the button to edit and delete their accout 
 
-V. The user can also see all the recipes on the site\
+V. The user can also see all the recipes on the site
 
 VI. When a user clicks on the recipe they can look at it in more details
 
@@ -51,4 +51,5 @@ VI. When a user clicks on the recipe they can look at it in more details
 ![add](wireframes/addRecipe.png)
 
 ![recipeindex](wireframes/index.png)
+
 ![recipeindex](wireframes/show.png)

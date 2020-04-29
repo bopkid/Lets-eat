@@ -1,0 +1,24 @@
+.card{
+    border: 5px #D6ECFF solid;
+}
+
+.btn{
+    background-color: #639953;
+    
+}
+.btn a{
+    color: #D6ECFF;
+}
+
+.name{
+  
+    justify-content: center;
+}
+
+main{
+    background-color: #fefff0;
+}
+
+.more-recipes {
+    padding-top: 2%;
+}

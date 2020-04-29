@@ -14,7 +14,13 @@
 .btn{
     background-color: #639953;
     color: #D6ECFF;
+    margin-bottom: 5px;
 }
+
+#text{
+    margin: 20%;
+}
+
 
 h1 {
     padding-right: 8%;
@@ -31,28 +37,3 @@ img {
     width: 50%;
     height: 50%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

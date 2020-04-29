@@ -1,34 +1,29 @@
 <%- include('../partials/_head',) %>
+<link rel="stylesheet" href="/css/show-recipe/style.css">
 <main>
-    <h1>Recipe Details</h1>
-    <section>
 
-        <h4>Recipe Name:</h4> 
-        <p><%=recipe.name%></p>
+    <section class="d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+            <img class="card-img-top" src="<%=recipe.url%>" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">Recipe Details</h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name of Recipe</li>
+                <p><%=recipe.name%></p>
 
-        <h4>Recipe Made By:</h4>
-        <a href='/users/<%= user._id %>'' ><p><%= user.name %> </p></a>
+              <li class="list-group-item">Author</li>
+                <a href='/users/<%= user._id %>'' ><p><%= user.name %> </p></a>
 
-        <h4>What Type of Meal:</h4>
-        <p><%=recipe.typeOfMeal%></p>
+              <li class="list-group-item">Ingredients Needed to make this Recipe </li>
+              <p><%=recipe.ingredients%></p>
+           
+            <li class="list-group-item">Directions for this Recipe </li>
+            <p><%=recipe.direction%></p>
 
-        <h4>Origin of Recipe:</h4>
-        <p><%=recipe.origin%></p>
-
-        <h4>How Many Mouths Does it Feed?</h4>
-        <p><%=recipe.serving%></p>
-
-
-        <h4>Ingredients Needed:</h4>
-        <p><%=recipe.ingredients%></p>
-
-        <h4>Directions:</h4>
-        <p><%=recipe.direction%></p>
-
-        <h4>Posted:</h4>
-        <p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
-
-
+            <li class="list-group-item">Origin of Recipe</li>
+            <p><%=recipe.origin%></p>
+        </ul>
     </section>
 <!--     <form action = "/recipes/<%=recipe._id%>?_method=DELETE" method = "POST">
         <button type = 'submit'>Delete Recipe</button>

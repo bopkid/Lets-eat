@@ -4,34 +4,32 @@
 
 
 
-<%-include('../partials/_head')%>
-
     <h1>Recipes Page</h1>
 
         <section class = "recipe-index">
-            <%recipes.forEach((recipe) => {%> 
+            <%recipe.forEach((recipes) => {%> 
  
                 <section class = "recipe-container">
             <span class = "recipe-container__name"><h4>Name:</h4>
-                <p><a href="recipes/<%=recipe._id%>">
-                    <%= recipe.name %> 
+                <p><a href="recipes/<%=recipes._id%>">
+                    <%= recipes.name %> 
                 </a></p>
             </span>
             <span class = "recipe-container__origin">
-            <h4>Origin:</h4><p> <%=recipe.origin%> </p>
+            <h4>Origin:</h4><p> <%=recipes.origin%> </p>
         </span>
         <span class = "recipe-container__ingredients">
-            <h4>Ingredients:</h4><p> <%=recipe.ingredients%> </p>
+            <h4>Ingredients:</h4><p> <%=recipes.ingredients%> </p>
         </span>
             <span class = "images">
-            <img src = "<%= recipe.url %>" alt="<%=recipe.name%> ">
+            <img src = "<%= recipes.url %>" alt="<%=recipes.name%> ">
         </span>
         <span class = "recipe-container__ratings">
-            <h4>Ratings:</h4><p><%=recipe.avgRating%></p>
+            <h4>Ratings:</h4><p><%=recipes.avgRating%></p>
         </span>
         <br>
         <section class = "recipe-container__ratings--add">
-          <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+          <form action="/recipes/<%=recipes.id%>?_method=PUT" method="POST">
             <label for="ratings">Rating</label>
             <select name="ratings" id="ratings">
               <option value="" disabled selected>Please select ...</option>

@@ -1,4 +1,4 @@
-<%- include('../partials/_head',{user:user}) %>
+<%- include('../partials/_head',{user_id:user_id)}) %>
 <main>
     <h1>Edit Recipe</h1>
     <form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST"> <!--Action is where do we want the request to go -->

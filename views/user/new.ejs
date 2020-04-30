@@ -1,8 +1,6 @@
-
 <%- include('../partials/_head', {user:user_id}) %>
 <link rel="stylesheet" href="/css/recipe-new/style.css">
 <script src = '/new.js' defer></script>
-
 <main>
 
     <form action="/users " method="POST"> 
@@ -18,7 +16,6 @@
           <select name="user" id="user">
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
-
         <br />
       
         <button type ="menu" class= 'new-ingredient-btn' >new ingredients</button><br />
@@ -33,7 +30,7 @@
         <div>
             <div class = 'directions'>   
                 <label for="direction">Directions for this Recipe </label><br/>
-                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="70"></textarea>
+                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="50"></textarea>
              </div>
         </div>
 

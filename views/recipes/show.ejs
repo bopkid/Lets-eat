@@ -1,46 +1,9 @@
 
-<%- include('../partials/_head',{user_id:user_id}) %>
+<%- include('../partials/_head',{user_id:null}) %>
 <main>
-    <h1>Recipe Details</h1>
-    <section>
+ 
 
-        <h4>Recipe Name:</h4> 
-        <p><%=recipe.name%></p>
-
-        <h4>Recipe Made By:</h4>
-        <a href='/users/<%= user._id %>'' ><p><%= user.name %> </p></a>
-
-        <h4>What Type of Meal:</h4>
-        <p><%=recipe.typeOfMeal%></p>
-
-        <h4>Origin of Recipe:</h4>
-        <p><%=recipe.origin%></p>
-
-        <h4>How Many Mouths Does it Feed?</h4>
-        <p><%=recipe.serving%></p>
-
-
-        <h4>Ingredients Needed:</h4>
-        <ul>
-            <% for( let i = 0; i < recipe.ingredients.length; i++ ) { %>
-                <li><%= recipe.ingredients[i] %> </li>
-            <% } %>
-         </ul>
-       
-
-        <h4>Directions:</h4>
-        <ol>
-            <% for( let i = 0; i < recipe.direction.length; i++ ) { %>
-                <li><%= recipe.direction[i] %> </li>
-            <% } %>
-         </ol>
-       
-
-        <h4>Posted:</h4>
-        <p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
-
-
-    <section class="d-flex justify-content-center">
+    <section class="d-flex justify-content-center m-5">
         <div class="card" style="width: 30rem;">
             <img class="card-img-top" src="<%=recipe.url%>" alt="Card image cap">
             <div class="card-body">
@@ -54,10 +17,19 @@
                 <a href='/users/<%= user._id %>'' ><p><%= user.name %> </p></a>
 
               <li class="list-group-item">Ingredients Needed to make this Recipe </li>
-              <p><%=recipe.ingredients%></p>
+              <ul>
+                <% for( let i = 0; i < recipe.ingredients.length; i++ ) { %>
+                    <li><%= recipe.ingredients[i] %> </li>
+                <% } %>
+             </ul>
            
             <li class="list-group-item">Directions for this Recipe </li>
-            <p><%=recipe.direction%></p>
+            <ol>
+                <% for( let i = 0; i < recipe.direction.length; i++ ) { %>
+                    <li><%= recipe.direction[i] %> </li>
+                <% } %>
+             </ol>
+           
 
             <li class="list-group-item">Origin of Recipe</li>
             <p><%=recipe.origin%></p>

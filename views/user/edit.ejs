@@ -1,51 +1,53 @@
-
-<%- include('../partials/_head') %>
+<%- include('../partials/_head' , {user_id:user._id}) %>
 <link rel="stylesheet" href="/css/edit-user/style.css">
-
-
 <main>
     <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
+        <div>
 
-        <section class="d-flex justify-content-center">
-            <div class="card" style="width: 30rem;">
-                <div class="card-body">
-                  <h3 class="card-title">Edit <%=user.name%> </h3>
-                </div>
-                <ul class="list-group list-group-flush">
-                    
-                    <label for="isProfessionalChef">Are you a Professional Chef?</label>
-                    <section class="professional-chef">
-                    <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" /> 
-                    <label for="isProfessionalChef">Yes</label>
-                    <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" value = "null"/> 
-                    <label for="isProfessionalChef">No</label>
-                </section>
-                  <li class="list-group-item">          
-                       <label>You're current favorite cuisines</label>
-                    <p><%=user.foodPreference%></p>
-                    <label for="foodPreference">Would you like to edit your favorite cuisines?</label> <br>
-                    <input type='checkbox' id="foodPreference" name="foodPreference" value="Asian"/> 
-                    <label for="foodPreference">Asian</label>
-        
-                    <input type='checkbox' id="foodPreference" name="foodPreference" value="American"/> 
-                    <label for="foodPreference">American</label>
-        
-                    <input type='checkbox' id="foodPreference" name="foodPreference" value="Indian"/> 
-                    <label for="foodPreference">Indian</label>
-        
-                    <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
-                    <label for="foodPreference">Mediteranean</label>
-               
-                <li class="list-group-item">Username:</li>
-                <input class = "sign-up__form--non-checkbox" value="<%=user.username%>" type='text' id="username" placeholder="Username" name="username"/> 
-        
-                <li class="list-group-item">Email:</li>
-                <input class = "sign-up__form--non-checkbox" value="<%=user.email%>" type='text' id="email" placeholder="Email" name="email"/> 
-            </ul>
-                  <button type="submit">Submit Changes</button> 
-              </div>
-            </form>
-            </main>
-            <%- include('../partials/_footer') %>
+            <label for="isProfessionalChef">Are you a Professional Chef?</label>
+            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" /> 
+            <label for="isProfessionalChef">Yes</label>
+            <input type='checkbox' id="isProfessionalChef" name="isProfessionalChef" value = "null"/> 
+            <label for="isProfessionalChef">No</label>
 
+            <input class = "sign-up__form--non-checkbox" type='text' id="name" value ="<%=user.name%>"placeholder="Name" name="name"/> 
+        </div>
+        <div>
+            <label for="isProfessionalChef">Are you a Professional Chef?</label>
+            <div> 
+                <input type='radio' id="isProfessionalChef" name="isProfessionalChef" id= 'yes-chef'/> 
+                <label for="yes-chef" unselectable>Yes</label>
+            </div>
+            <div> 
+                <input type='radio' id="isProfessionalChef" name="isProfessionalChef" id ='no-chef'/> 
+                <label for="no-chef" unselectable>No</label>
+            </div>
+f
+        </div>
+        <div>
+            <label>You're current favorite cuisines</label>
+            <p><%=user.foodPreference%></p>
+            <label for="foodPreference">Would you like to edit your favorite cuisines?</label> <br>
+            <input type='checkbox' id="foodPreference" name="foodPreference" value="Asian"/> 
+            <label for="foodPreference">Asian</label>
 
+            <input type='checkbox' id="foodPreference" name="foodPreference" value="American"/> 
+            <label for="foodPreference">American</label>
+
+            <input type='checkbox' id="foodPreference" name="foodPreference" value="Indian"/> 
+            <label for="foodPreference">Indian</label>
+
+            <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
+            <label for="foodPreference">Mediteranean</label>
+        </div>
+        <div>
+            <input class = "sign-up__form--non-checkbox" value="<%=user.username%>" type='text' id="username" placeholder="Username" name="username"/> 
+        </div>
+        <div>
+            <input class = "sign-up__form--non-checkbox" value="<%=user.email%>" type='text' id="email" placeholder="Email" name="email"/> 
+        </div>
+
+        <section class ="sign-up__form--button">
+        <button type="submit" value= "Register">Let's Start Cooking!</button> 
+    </section>
+    </form>

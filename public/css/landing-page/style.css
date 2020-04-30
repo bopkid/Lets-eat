@@ -28,11 +28,16 @@ body {
 }
 
 
+
 .first-block {
     display: flex;
     height: 100vh;
     background-color: var(--primary);
     color: white;;
+}
+
+.logo {
+    padding-left: 8rem;
 }
 
 .first-block__logo {
@@ -42,7 +47,7 @@ body {
 }
 
 .first-block__logo h3 {
-    padding-left: 7rem;
+    padding-left: 9rem;
     letter-spacing: 1px;
 }
 

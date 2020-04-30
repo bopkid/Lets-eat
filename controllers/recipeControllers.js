@@ -16,10 +16,11 @@ router.get('/', async(req,res)=>{
         }
     console.log(req.session.currentUser)
     const allRecipes = await db.Recipe.find()
+    const foundUser = await db.User.findById(req.session.currentUser)
     res.render('recipes/index',{
         recipes: allRecipes,
         title: 'Recipes',
-        user_id: req.session.currentUser   
+        user_id: foundUser,
          
         
     })

@@ -51,12 +51,12 @@ body {
     text-align: left;
     font-weight: 300;
     font-style: italic;
-    line-height: 3em;
+    line-height: 1em;
 }
 
 .answers {
     font-size: 2em;
-    line-height: 1em;
+    line-height: 1.5em;
     font-weight: 300;
 
 }

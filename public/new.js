@@ -10,7 +10,7 @@ document.querySelector('.new-ingredient-btn').addEventListener('click',(eve)=>{
 
     newIngredent.className = 'new-ingredient';
     newIngredent.setAttribute('rows', 1);
-    newIngredent.setAttribute('cols', 50);
+    newIngredent.setAttribute('cols', 47);
 
     newIngredent.setAttribute('id','ingredients' );
     newIngredent.setAttribute('name',  "ingredients")

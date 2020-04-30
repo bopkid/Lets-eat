@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="/css/new-recipe/style.css">
 
 <script src = '/new.js' defer></script>
+
+
 <main>
 
     <form action="/users " method="POST"> 
@@ -14,7 +16,7 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Name of Recipe: </li>
-            <textarea id="name" name="ingredients"></textarea>
+            <input type='text' id='name' name='name'>
           <li class="list-group-item">Author</li>
           <select name="user" id="user">
             <option value="<%= user._id %>"><%= user.name %></option>
@@ -35,9 +37,15 @@
             <div class = 'directions'>   
                 <label for="direction">Directions for this Recipe: </label><br/>
                 <button type ="menu" class= 'new-direction-btn' >Add New Direction</button><br />
-                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="47"></textarea>
+                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="47"></textarea><br />
 
              </div>
+        </div>
+
+
+        <div class = 'serving-size'>
+            <label for="serving">How Many Mouths Does It Feed?</label>
+            <input type = 'number' id="serving" name="serving"/> 
         </div>
 
         <div class = 'image'>

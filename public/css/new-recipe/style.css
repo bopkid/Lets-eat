@@ -52,6 +52,14 @@ button:hover {
     background-color: var(--secondary-variant);
 }
 
+.serving-size {
+    text-align: center;
+}
+
+.serving-size input {
+    width: 10%;
+}
+
 new-ingredient-btn {
     border-radius: 10%;
     padding-bottom: 10%;

@@ -13,6 +13,12 @@ const bodyParser = require('body-parser');
 // Bring in Method-Override
 const methodOverride = require('method-override');
 
+
+const MongoStore  = require('connect-mongo')(session);
+
+
+//
+
 // Port Activation
 const port = process.env.PORT || 4000;
 console.log('The Value of test = ', process.env.TEST)
@@ -30,6 +36,9 @@ app.set('view engine', 'ejs')
 // ---------------------------------------- MIDDLEWARE-----------------
 // Express Session
 app.use(session({
+    store: new MongoStore({
+        url:process.env.MONGODB_URI || 'mongodb://localhost:27017/Lets-eat'
+    }),
     secret: 'jfiewo;ajio23r243f4igjowssieowi;oiwajawqwbbcd', 
     resave: false, 
     saveUninitialized: false, 

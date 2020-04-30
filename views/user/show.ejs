@@ -1,30 +1,18 @@
-<%-include('../partials/_head')%>
+<%-include('../partials/_head', {user_id:user._id})%>
 <script type = "text/javascript" src="/javascript/app.js" defer></script>
 <link rel="stylesheet" href="/css/show-user/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
     <main>
-        <button class = 'btn'>
-            <a href="/users/<%= user._id%>/new">Add New Recipes</a>
-        </button>
 
-        <button class = 'btn'>
-            <a href="/users/<%= user._id%>/recipes">My Recipes</a>
-        </button>
-      
-            <button class="btn"> 
-                 <a href = "/users/<%=user._id%>/edit">
-                    Edit Preferences 
-                </a>
-            </button>
         
         <div class="row m-5  name">
 
-                <h2 >Hello <%=user.name%></h2>
-         
-        </div>
-         <h4>Random Recipes:</h4>
-        <section class = 'd-flex justify-content-between'>
-           
-            
+                <h2 class = "animated fadeInLeft delay-1s">Welcome back <%=user.name%></h2>
+         </div>
+
+         <h4 class = "animated fadeInLeft delay-1s">Have You Tried Making These Before?</h4>
+        <section class = 'd-flex justify-content-between random-recipes'>
                     <%
                      let num_of_recipe = 0;
                      let max = 4;
@@ -46,24 +34,29 @@
                         }  
                         for(let i = 0; i < num_picked.length ; i++) {%>
                         
-                            <div class="card ml-3" style="width: 18rem;">
+                            <div class="card ml-3 animated fadeInLeft delay-1s" style="width: 18rem;">
                                 <img src="<%= recipes[num_picked[i]].url%>" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text"><a href= "/recipes/<%= recipes[num_picked[i]]._id%> "  >  
-                                    <span>Recipe Name:<%= recipes[num_picked[i]].name %> </span> <br/>
+                                    <p class="card-text">
+                                        <a href= "/recipes/<%= recipes[num_picked[i]]._id%> "  >  
+                                        <span>Recipe Name:<br/>
+                                            <%= recipes[num_picked[i]].name %> 
+                                            </span> <br/>
+                                    </a>
                                     <span>Origin:<%= recipes[num_picked[i]].origin%> </span> 
                                    
                                     </p>
                                 </div>
                             </div>
-                       
-                        
-                          
                        <%   
-                         console.log(recipes[num_picked[i]]._id)}
-                        %>
-        </section>
-        
+                         console.log(recipes[num_picked[i]]._id)
+
+                        }%>                                      </div>  </section>
+
+
+            
+
+        <div class="animated fadeIn delay-2s">
         <section class="more-recipes">
         <h4> Other Recipes You Might Like: </h4>
          <section  class = 'container'>
@@ -73,7 +66,7 @@
               <% if(recipe.origin === food) { %>
                 <div class="col col-md-3 m-4">
                 <div class="card" style="width: 18rem;">
-                    <img src="<%= recipe.url%>" class="card-img-top" alt="...">
+                    <img src="<%= recipe.url%>" class="card-img-top" alt="food picture">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
@@ -88,6 +81,7 @@
           
              <% }})}) %>
             </div>
+            </div>
         </section>
     </section>
         <h4>Created At:</h4> <p><%=new Date(user.createdAt).toLocaleDateString()%></p>
@@ -99,7 +93,19 @@
             <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
                 <button class = 'btn' type = 'submit'>Delete Account</button>
             </form>
+            <button class = 'btn'>
+            <a href="/users/<%= user._id%>/new">Add New Recipes</a>
+        </button>
 
+        <button class = 'btn'>
+            <a href="/users/<%= user._id%>/recipes">My Recipes</a>
+        </button>
+      
+            <button class="btn"> 
+                 <a href = "/users/<%=user._id%>/edit">
+                    Edit Preferences 
+                </a>
+            </button>
         </section>
     </main>
     

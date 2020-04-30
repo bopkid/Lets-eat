@@ -15,12 +15,28 @@
 * {
     box-sizing:border-box;
 }
+body {
+    height: 100vh;
+    background-color: var(--surface);
+    font-family: Merriweather, serif;
+}
+
+main {
+    padding-bottom: 10%;
+    padding-top: 10%;
+   
+}
 
 .btn{
-    background-color: #639953;
-    color: #D6ECFF;
+    background-color: var(--secondary);
+    color: white;
     margin-bottom: 5px;
 }
+
+.btn:hover {
+    background-color: var(--secondary-variant);
+}
+
 
 #text{
     margin: 20%;
@@ -30,10 +46,7 @@
 h1 {
     padding-right: 8%;
 }
-body {
-    height: 100vh;
-    background-color: var(--off-white);
-}
+
 
 .name {
     justify-content: center;

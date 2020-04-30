@@ -1,0 +1,67 @@
+:root {
+    --primary-variant: #93202c;
+    --primary: #d32e3f;
+    --primary-variant-light: #db5765;
+    --secondary:  #2ed3c2;
+    --secondary-variant: #209387;
+    --secondary-variant-light: #57dbce;
+    --analogous: #d3702e;
+    --triadic: #3fd32e;
+    --background: #eceff1;
+    --surface: #eceff1;
+    --error: #B00020; 
+}
+
+body {
+    height: 100vh;
+    background-color: var(--surface);
+}
+
+main {
+    padding-bottom: 5%;
+    padding-top: 5%;
+    font-family: Merriweather, serif;
+}
+
+.ingredients {
+    padding-top: 5%;
+}
+
+.directions {
+    padding-top: 5%;
+}
+
+.image {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align:center;
+}
+
+.category {
+    margin: 1%;
+}
+.checkbox {
+    padding-top: 5%;
+}
+button {
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 10%;
+}
+
+button:hover {
+    background-color: var(--secondary-variant);
+}
+
+new-ingredient-btn {
+    border-radius: 10%;
+    padding-bottom: 10%;
+}
+
+.new-ingredient{
+    display: block;
+}
+
+.new-direction{
+    display: block;
+}

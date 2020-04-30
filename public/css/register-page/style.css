@@ -1,28 +1,33 @@
 :root {
-    --primary-variant: #b71c2c;
+    --primary-variant: #93202c;
     --primary: #d32e3f;
-    --primary-variant-light: #f54047;
+    --primary-variant-light: #db5765;
     --secondary:  #2ed3c2;
+    --secondary-variant: #209387;
+    --secondary-variant-light: #57dbce;
     --analogous: #d3702e;
     --triadic: #3fd32e;
     --background: #eceff1;
     --surface: #eceff1;
-    --error: #B00020;
+    --error: #B00020; 
 }
 
 
 * {box-sizing: border-box;}
 
+body {
+    background-color:  white;
+}
 
 main {
-	background: var(--off-white);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: row-reverse;
-	height: 100vh;
-    margin: 0;
-    font-family: Raleway;
+    font-family: Merriweather, serif;
+    height: 100vh;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 input {
@@ -30,7 +35,7 @@ input {
 }
 
 .sign-up__form--non-checkbox {
-    background-color: var(--off-white);
+    background-color: white;
     border: none;
 	padding: 5px;
     margin: 8px 0;
@@ -45,8 +50,8 @@ input {
     height: 80%;
     text-align: center;
     border-radius: 10px;
-    background-color: white;
-    padding-top: 5%;
+    background-color: var(--background);
+    padding-top: 2%;
     border-radius: 0 10px 10px 0;
 }
 
@@ -54,20 +59,21 @@ input {
     flex-grow: 2;
     width: 50%;
     height: 80%;
-    background: linear-gradient(to right, var(--yellow), var(--orange));
+    background: var(--primary);
     text-align: center;
-    padding-top: 20%;
+    padding-top: 15%;
     border-radius: 10px 0 0 10px;
+    color: white;
 }
 
 .sign-up__form--button {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 button {
 	border-radius: 20px;
-	border: 1px solid var(--green);
-	background-color: var(--green);
+	border: 1px solid var(--secondary);
+	background-color: var(--secondary);
 	color: white;
 	font-size: 12px;
 	font-weight: bold;
@@ -78,5 +84,5 @@ button {
 }
 
 button:hover {
-    background-color: var(--orange);
+    background-color: var(--secondary-variant);
 }

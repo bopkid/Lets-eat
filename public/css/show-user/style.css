@@ -50,6 +50,18 @@ main{
     background-color: var(--secondary-variant);
 }
 
+.btn-delete {
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 10%;
+}
+
+.btn-delete:hover {
+    background-color: var(--error);
+}
+
+
+
 .name {
     justify-content: center;
 }

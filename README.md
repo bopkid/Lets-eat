@@ -1,5 +1,5 @@
 ## Project 1 
-By Alvin Wong and Luncky Li
+By Alvin Wong and Lucky Li
 
 ___
 

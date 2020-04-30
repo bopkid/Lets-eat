@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css"   href="/css/register-page/style.css">
-<%- include('../partials/_head', {user_id: null}) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
 <main>
-    <section class = "sign-up__form">
+    <section class = "sign-up__form animated fadeIn  delay-2s">
     <h1>Sign Up</h1>
     <form action="/auth/register" method="POST"> 
         <div>
@@ -45,7 +46,7 @@
     </section>
     </form>
 </section>
-<section class = "sign-up__description">
+<section class = "sign-up__description animated fadeIn delay-1s">
     <h2>Cooking Redefined!</h2>
     <p>Recipes so good, you'll second guess about going out to eat.</p>
 </section>

@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 <link rel="stylesheet" href="/css/show-recipe/style.css">
 <link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
 
@@ -7,51 +6,6 @@
 <main>
       <section class="d-flex justify-content-center">
         <div class="card" style="width: 30rem">
-=======
-<%- include('../partials/_head',{user_id:user_id}) %>
-<main>
-    <h1>Recipe Details</h1>
-    <section>
-
-        <h4>Recipe Name:</h4> 
-        <p><%=recipe.name%></p>
-
-        <h4>Recipe Made By:</h4>
-        <a href='/users/<%= user._id %>'' ><p><%= user.name %> </p></a>
-
-        <h4>What Type of Meal:</h4>
-        <p><%=recipe.typeOfMeal%></p>
-
-        <h4>Origin of Recipe:</h4>
-        <p><%=recipe.origin%></p>
-
-        <h4>How Many Mouths Does it Feed?</h4>
-        <p><%=recipe.serving%></p>
-
-
-        <h4>Ingredients Needed:</h4>
-        <ul>
-            <% for( let i = 0; i < recipe.ingredients.length; i++ ) { %>
-                <li><%= recipe.ingredients[i] %> </li>
-            <% } %>
-         </ul>
-       
-
-        <h4>Directions:</h4>
-        <ol>
-            <% for( let i = 0; i < recipe.direction.length; i++ ) { %>
-                <li><%= recipe.direction[i] %> </li>
-            <% } %>
-         </ol>
-       
-
-        <h4>Posted:</h4>
-        <p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
-
-
-    <section class="d-flex justify-content-center">
-        <div class="card" style="width: 30rem;">
->>>>>>> submaster
             <img class="card-img-top" src="<%=recipe.url%>" alt="Card image cap">
             <div class="card-body">
               <h3 class="card-title">Recipe Details</h3>

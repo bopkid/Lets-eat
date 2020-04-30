@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-<%- include('../partials/_head', {user_id:user._id}) %>
-=======
-
-<%- include('../partials/_head',{user:user._id}) %>
->>>>>>> submaster
+<%- include('../partials/_head', {user:user._id}) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/index-user/style.css">
 
 
@@ -14,7 +11,7 @@
 <section  class = 'container'>
     <div class = 'row'>
     <%user.recipes.forEach((recipe) => {%> 
-        <div class="col col-md-3 m-4">
+        <div class="col col-md-3 m-4 animated fadeInRight delay-1s">
             <div class="card" style="width: 18rem;">
                 <img src="<%= recipe.url%>" class="card-img-top" alt="...">
                 <div class="card-body">

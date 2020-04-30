@@ -1,9 +1,19 @@
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="/css/edit-user/style.css">
 
 <%- include('../partials/_head' , {user_id:user._id}) %>
 <main>
     <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
+=======
+<%- include('../partials/_head') %>
+<link rel="stylesheet" href="/css/edit-user/style.css">
+
+
+<main>
+    <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
+
+>>>>>>> submaster
         <section class="d-flex justify-content-center">
             <div class="card" style="width: 30rem;">
                 <div class="card-body">
@@ -45,6 +55,7 @@
             </form>
             </main>
             <%- include('../partials/_footer') %>
+<<<<<<< HEAD
         <div>
             <input class = "sign-up__form--non-checkbox" type='text' id="name" value ="<%=user.name%>"placeholder="Name" name="name"/> 
         </div>
@@ -68,10 +79,11 @@
 
             <input type='checkbox' id="foodPreference" name="foodPreference" value="American"/> 
             <label for="foodPreference">American</label>
+=======
+>>>>>>> submaster
 
-            <input type='checkbox' id="foodPreference" name="foodPreference" value="Indian"/> 
-            <label for="foodPreference">Indian</label>
 
+<<<<<<< HEAD
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
             <label for="foodPreference">Mediteranean</label>
         </div>
@@ -85,3 +97,5 @@
         <button type="submit" value= "Register">Let's Start Cooking!</button> 
     </section>
     </form>
+=======
+>>>>>>> submaster

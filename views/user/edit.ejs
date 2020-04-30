@@ -1,13 +1,23 @@
 
+<<<<<<< HEAD
 <%- include('../partials/_head') %>
+=======
+
+<%- include('../partials/_head' , {user:user._id}) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
+>>>>>>> submaster
 <link rel="stylesheet" href="/css/edit-user/style.css">
-
-
 <main>
     <form action="/users/<%=user._id%>?_method=PUT"" method="POST"> 
+<<<<<<< HEAD
 
         <section class="d-flex justify-content-center">
             <div class="card" style="width: 30rem;">
+=======
+        <section class="d-flex justify-content-center animated fadeInRight delay-1s">
+            <div class="card" style="width: 25rem;">
+>>>>>>> submaster
                 <div class="card-body">
                   <h3 class="card-title">Edit <%=user.name%> </h3>
                 </div>
@@ -42,11 +52,12 @@
                 <li class="list-group-item">Email:</li>
                 <input class = "sign-up__form--non-checkbox" value="<%=user.email%>" type='text' id="email" placeholder="Email" name="email"/> 
             </ul>
-                  <button type="submit">Submit Changes</button> 
+                  <button type="submit">Change My Preferences</button> 
               </div>
             </form>
             </main>
             <%- include('../partials/_footer') %>
+<<<<<<< HEAD
 
 
             <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
@@ -62,3 +73,6 @@
         <button type="submit" value= "Register">Let's Start Cooking!</button> 
     </section>
     </form>
+=======
+       
+>>>>>>> submaster

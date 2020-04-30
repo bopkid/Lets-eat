@@ -30,8 +30,10 @@ document.querySelector('.new-direction-btn').addEventListener('click',(e)=>{
 
     newDierection.className = 'new-direction';
     newDierection.setAttribute('rows', 5);
-    newDierection.setAttribute('cols', 50);
+    newDierection.setAttribute('cols', 47);
     newDierection.setAttribute('id','direction' );    
     newDierection.setAttribute('name',  "direction");
     direction.appendChild(newDierection);
 })
+
+

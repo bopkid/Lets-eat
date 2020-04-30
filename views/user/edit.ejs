@@ -49,3 +49,16 @@
             <%- include('../partials/_footer') %>
 
 
+            <input type='checkbox' id="foodPreference" name="foodPreference" value="Mediterranean"/> 
+            <label for="foodPreference">Mediteranean</label>
+        </div>
+        <div>
+            <input class = "sign-up__form--non-checkbox" value="<%=user.username%>" type='text' id="username" placeholder="Username" name="username"/> 
+        </div>
+        <div>
+            <input class = "sign-up__form--non-checkbox" value="<%=user.email%>" type='text' id="email" placeholder="Email" name="email"/> 
+        </div>
+        <section class ="sign-up__form--button">
+        <button type="submit" value= "Register">Let's Start Cooking!</button> 
+    </section>
+    </form>

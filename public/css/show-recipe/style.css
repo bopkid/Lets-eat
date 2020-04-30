@@ -23,13 +23,15 @@ body {
     text-align: center;
 }
 
+.card-title {
+    font-weight: bold;
+}
+
 .title {
     text-align: left;
     font-weight: 300;
     font-style: italic;
     line-height: 3em;
-    padding-top: 12em;
-    padding-bottom: 13em;
 }
 
 .answers {

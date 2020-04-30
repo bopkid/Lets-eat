@@ -9,7 +9,7 @@ const configOption ={
     useUnifiedTopology:true,
 }
 
-mongoose.connect(connectionString,configOption)
+mongoose.connect( (process.env.MONGODB_URI || connectionString), configOption)
     .then(()=>{console.log('MongoDB conntected sucessfully')})
     .catch((err)=>{console.log(`MongoDB connection error: ${err}`)})
 

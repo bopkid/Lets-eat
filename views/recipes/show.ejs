@@ -1,29 +1,46 @@
-<%- include('../partials/_head',) %>
-<link rel="stylesheet" href="/css/show-recipe/style.css">
-<main>
 
-    <section class="d-flex justify-content-center">
-        <div class="card" style="width: 30rem;">
+<link rel="stylesheet" href="/css/show-recipe/style.css">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
+
+
+<main>
+      <section class="d-flex justify-content-center">
+        <div class="card" style="width: 30rem">
             <img class="card-img-top" src="<%=recipe.url%>" alt="Card image cap">
             <div class="card-body">
               <h3 class="card-title">Recipe Details</h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Name of Recipe</li>
-                <p><%=recipe.name%></p>
+                <li class="list-group-item title">Name of Recipe
+                <p class = "answers"><%=recipe.name%></p></li>
 
-              <li class="list-group-item">Author</li>
-                <a href='/users/<%= user._id %>'' ><p><%= user.name %> </p></a>
+              <li class="list-group-item title">Recipe made by:
+                <a href='/users/<%= user._id %>'' ><p class = "answers"><%= user.name %> </p></a></li>
+            
 
-              <li class="list-group-item">Ingredients Needed to make this Recipe </li>
-              <p><%=recipe.ingredients%></p>
+              <li class="list-group-item title">Ingredients Needed to make this Recipe 
+              <ul >
+                <% for( let i = 0; i < recipe.ingredients.length; i++ ) { %>
+                    <li class = "answers"><%= recipe.ingredients[i] %> 
+                <% } %>
+             </ul></li>
            
-            <li class="list-group-item">Directions for this Recipe </li>
-            <p><%=recipe.direction%></p>
+            <li class="list-group-item title">Directions for this Recipe 
+            <ol>
+                <% for( let i = 0; i < recipe.direction.length; i++ ) { %>
+                    <li class = "answers"><%= recipe.direction[i] %> 
+                <% } %>
+             </ol></li>
 
-            <li class="list-group-item">Origin of Recipe</li>
-            <p><%=recipe.origin%></p>
+            <li class="list-group-item title">Origin of Recipe
+            <p class = "answers"><%=recipe.origin%></p></li>
+
+            <li class="list-group-item title">How Many Mouths Does it Feed?
+            <p class = "answers"><%=recipe.serving%></p></li>
+
         </ul>
+        <h5>Posted:</h5>
+        <p><%=new Date(recipe.createdAt).toLocaleDateString()%></p>
     </section>
 <!--     <form action = "/recipes/<%=recipe._id%>?_method=DELETE" method = "POST">
         <button type = 'submit'>Delete Recipe</button>

@@ -1,21 +1,42 @@
 :root {
-    --yellow: #F8B734;
-    --orange: #f78f29;
-    --blue:  #2B898B;
-    --green: #27704f;
-    --dark-grey: #213037;
-    --off-white: #f5f5f5;
+    --primary-variant: #93202c;
+    --primary: #d32e3f;
+    --primary-variant-light: #db5765;
+    --secondary:  #2ed3c2;
+    --secondary-variant: #209387;
+    --secondary-variant-light: #57dbce;
+    --analogous: #d3702e;
+    --triadic: #3fd32e;
+    --background: #eceff1;
+    --surface: #eceff1;
+    --error: #B00020; 
 }
 
 * {
     box-sizing:border-box;
 }
+body {
+    height: 100vh;
+    background-color: var(--surface);
+    font-family: Merriweather, serif;
+}
+
+main {
+    padding-bottom: 10%;
+    padding-top: 10%;
+   
+}
 
 .btn{
-    background-color: #639953;
-    color: #D6ECFF;
+    background-color: var(--secondary);
+    color: white;
     margin-bottom: 5px;
 }
+
+.btn:hover {
+    background-color: var(--secondary-variant);
+}
+
 
 #text{
     margin: 20%;
@@ -25,10 +46,7 @@
 h1 {
     padding-right: 8%;
 }
-body {
-    height: 100vh;
-    background-color: var(--off-white);
-}
+
 
 .name {
     justify-content: center;

@@ -46,7 +46,6 @@ main {
 button {
     background-color: var(--secondary);
     color: white;
-    border-radius: 10%;
 }
 
 button:hover {

@@ -1,37 +1,65 @@
 :root {
-    --yellow: #F8B734;
-    --orange: #f78f29;
-    --blue:  #2B898B;
-    --green: #27704f;
-    --dark-grey: #213037;
-    --off-white: #f5f5f5;
+    --primary-variant: #93202c;
+    --primary: #d32e3f;
+    --primary-variant-light: #db5765;
+    --secondary:  #2ed3c2;
+    --secondary-variant: #209387;
+    --secondary-variant-light: #57dbce;
+    --analogous: #d3702e;
+    --triadic: #3fd32e;
+    --background: #eceff1;
+    --surface: #eceff1;
+    --error: #B00020; 
 }
+
 
 * {
     box-sizing:border-box;
 }
 
-.btn{
-    background-color: #639953;
-    color: #D6ECFF;
+
+main {
+    text-align: center;
+
+    font-family: Merriweather, serif;
 }
 
 h1 {
     padding-right: 8%;
+    padding-top: 3%;
 }
+
+.btn{
+    background-color:var(--secondary);
+    color: white;
+}
+
+.btn:hover {
+    background-color: var(--secondary-variant);
+}
+
 body {
     height: 100vh;
-    background-color: var(--off-white);
+    background-color: var(--surface)
 }
 
 .name {
     justify-content: center;
 }
-img {
-    width: 50%;
-    height: 50%;
+
+.title {
+    text-align: left;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1em;
 }
 
+.answers {
+    font-size: 2em;
+    line-height: 1.5em;
+    font-weight: 300;
+
+}
 
 
 

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+<%- include('../partials/_head', {user:user_id}) %>
+<link rel="stylesheet" href="/css/recipe-new/style.css">
+<script src = '/new.js' defer></script>
+=======
 
 <%- include('../partials/_head', {user:user_id}) %>
 <link rel="stylesheet" href="/css/recipe-new/style.css">
 <script src = '/new.js' defer></script>
 
+>>>>>>> submaster
 <main>
 
     <form action="/users " method="POST"> 
@@ -18,7 +24,15 @@
           <select name="user" id="user">
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
+<<<<<<< HEAD
+          <li class="list-group-item">Ingredients Needed to make this Recipe </li>
+          <textarea id="ingredients" name="ingredients"></textarea>
+       
+        <li class="list-group-item">Directions for this Recipe </li>
+        <textarea id="direction" name="direction"></textarea>
+=======
 
+>>>>>>> submaster
         <br />
       
         <button type ="menu" class= 'new-ingredient-btn' >new ingredients</button><br />

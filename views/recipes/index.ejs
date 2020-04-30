@@ -1,14 +1,12 @@
-
+<%-include('../partials/_head',{user:user_id})%>
 <link rel="stylesheet" type="text/css"   href="/css/index-recipe/style.css">
+<link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 
-
-
-<%-include('../partials/_head',{user_id:user_id})%>
-
-    <h1>Recipes Page</h1>
-</div>
+    
 <main>
+    <h1>Our Library of Recipes</h1>
 
     <section  class = 'container'>
         <div class = 'row'>
@@ -16,20 +14,20 @@
             <%recipes.forEach((recipe) => {%> 
                 
                 <div class="col col-md-3 m-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card animated fadeIn" style="width: 18rem;">
                     <img src="<%= recipe.url%>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h3 class="card-title">
                             <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
                         </h5>
                         <p class="card-text"> 
-                            Origin: <%= recipe.origin%>
+                            <h4 class = "title">Origin:</h4> <p class="answers"><%= recipe.origin%>
                          </p>
                          <p class="card-text"> 
-                            Ingredients: <%= recipe.ingredients%>
+                            <h4 class = "title">Ingredients:</h4><p class="answers"><%= recipe.ingredients%>
                          </p>
                          <p class="card-text"> 
-                            Ratings: <%= recipe.avgRating%>
+                            <h4 class = "title">Ratings: </h4> <p class="answers"><%= recipe.avgRating%>
                          </p>
         <br>
         <section class = "recipe-container__ratings--add">

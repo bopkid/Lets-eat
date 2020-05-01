@@ -1,17 +1,11 @@
-<<<<<<< HEAD
-
-<%- include('../partials/_head', {user:user}) %>
-<link rel="stylesheet" href="/css/recipe-new/style.css">
-<script src = '/new.js' defer></script>
-
-=======
 <%- include('../partials/_head', {user_id:user_id}) %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 <link href='https://fonts.googleapis.com/css?family=Merriweather:300italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/new-recipe/style.css">
 
 <script src = '/new.js' defer></script>
->>>>>>> submaster
+
+
 <main>
 
     <form action="/users " method="POST"> 
@@ -21,30 +15,14 @@
           <h3 class="card-title">Add New Recipe</h3>
         </div>
         <ul class="list-group list-group-flush">
-<<<<<<< HEAD
-            <li class="list-group-item" for = 'name'>Name of Recipe </li>
-            <textarea id="name" name="name"></textarea>
-
-
-=======
             <li class="list-group-item">Name of Recipe: </li>
-            <textarea id="name" name="ingredients"></textarea>
->>>>>>> submaster
+            <input type='text' id='name' name='name'>
           <li class="list-group-item">Author</li>
           <select name="user" id="user">
             <option value="<%= user._id %>"><%= user.name %></option>
         </select>
-<<<<<<< HEAD
-        <br />
-      
-        <button type ="menu" class= 'new-ingredient-btn' >new ingredients</button><br />
-        <div class = 'ingredients'>
-            <label for="ingredients">Ingredients Needed to make this Recipe </label><br/>
-            <textarea class="new-ingredients" id = 'ingredients' name="ingredients"  rows="1" cols="50"></textarea>
-=======
     
       
->>>>>>> submaster
         
         <div class = 'ingredients'>
             <label for="ingredients">Ingredients Needed to make this Recipe: </label>
@@ -57,23 +35,17 @@
 
         <div>
             <div class = 'directions'>   
-<<<<<<< HEAD
-                <label for="direction">Directions for this Recipe </label><br/>
-                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="50"></textarea>
+                <label for="direction">Directions for this Recipe: </label><br/>
+                <button type ="menu" class= 'new-direction-btn' >Add New Direction</button><br />
+                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="47"></textarea><br />
+
              </div>
         </div>
 
-  
 
-        <li class="list-group-item">Place Image Link Here</li>
-        <input type = 'url' id="url" name="url"/> 
-        <li class="list-group-item">What culture does this recipe belong to?
-=======
-                <label for="direction">Directions for this Recipe: </label><br/>
-                <button type ="menu" class= 'new-direction-btn' >Add New Direction</button><br />
-                <textarea  class = 'new-direction' id= 'dierections' name="direction"  rows="5" cols="47"></textarea>
-
-             </div>
+        <div class = 'serving-size'>
+            <label for="serving">How Many Mouths Does It Feed?</label>
+            <input type = 'number' id="serving" name="serving"/> 
         </div>
 
         <div class = 'image'>
@@ -82,7 +54,6 @@
         </div>
         
         <li class="list-group-item category">What culture does this recipe belong to?
->>>>>>> submaster
         <section class="checkbox">
         <label for="origin">Asian</label>
         <input type='checkbox' id="origin" name="origin" value="Asian"/> 

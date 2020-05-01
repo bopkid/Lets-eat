@@ -1,21 +1,26 @@
 :root {
-    --primary-variant: #b71c2c;
+    --primary-variant: #93202c;
     --primary: #d32e3f;
-    --primary-variant-light: #f54047;
+    --primary-variant-light: #db5765;
     --secondary:  #2ed3c2;
+    --secondary-variant: #209387;
+    --secondary-variant-light: #57dbce;
     --analogous: #d3702e;
     --triadic: #3fd32e;
     --background: #eceff1;
     --surface: #eceff1;
-    --error: #B00020;
-    --green: 27704f;
+    --error: #B00020; 
 }
 
 
 * {box-sizing: border-box;}
 
+body {
+    height: 100vh;
+    background-color: white;
+}
 main {
-	background: var(--off-white);
+	background: var(--surface);
 	display: flex;
 	justify-content: center;
     align-items: center;
@@ -39,13 +44,14 @@ main {
 }
 
 input {
-    background-color: var(--off-white);
+    background-color: var(--surface);
     border: none;
     margin: 10px;
     height: 5%;
     width: 30%;
     border-radius: 10px;
 }
+
 
 .login__picture--container {
     flex-grow: 2;
@@ -66,8 +72,8 @@ input {
 
 button {
 	border-radius: 20px;
-	border: 1px solid var(--green);
-	background-color: var(--green);
+	border: 1px solid var(--secondary);
+	background-color: var(--secondary);
 	color: white;
 	font-size: 12px;
 	font-weight: bold;
@@ -79,5 +85,5 @@ button {
 }
 
 button:hover {
-    background-color: var(--orange);
+    background-color: var(--secondary-variant);
 }

@@ -21,6 +21,15 @@ body {
     background-color: var(--surface);
 }
 
+button {
+    background-color: var(--secondary);
+    color: white;
+}
+
+button:hover {
+    background-color: var(--secondary-variant);
+}
+
 main {
     padding-bottom: 7%;
     padding-top: 7%;

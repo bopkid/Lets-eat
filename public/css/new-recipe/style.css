@@ -46,11 +46,18 @@ main {
 button {
     background-color: var(--secondary);
     color: white;
-    border-radius: 10%;
 }
 
 button:hover {
     background-color: var(--secondary-variant);
+}
+
+.serving-size {
+    text-align: center;
+}
+
+.serving-size input {
+    width: 10%;
 }
 
 new-ingredient-btn {

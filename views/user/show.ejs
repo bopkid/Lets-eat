@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<%-include('../partials/_head', {user_id:user._id})%>
-
-
-=======
 <%-include('../partials/_head', {user:user._id})%>
->>>>>>> submaster
 <script type = "text/javascript" src="/javascript/app.js" defer></script>
 <link rel="stylesheet" href="/css/show-user/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -41,7 +35,7 @@
                         for(let i = 0; i < num_picked.length ; i++) {%>
                         
                             <div class="card ml-3 animated fadeInLeft delay-1s" style="width: 18rem;">
-                                <img src="<%= recipes[num_picked[i]].url%>" class="card-img-top" alt="...">
+                                <img src="<%= recipes[num_picked[i]].url%>" class="card-img-top food-url" alt="...">
                                 <div class="card-body">
                                     <p class="card-text">
                                         <a href= "/recipes/<%= recipes[num_picked[i]]._id%> "  >  
@@ -72,7 +66,7 @@
               <% if(recipe.origin === food) { %>
                 <div class="col col-md-3 m-4">
                 <div class="card" style="width: 18rem;">
-                    <img src="<%= recipe.url%>" class="card-img-top" alt="food picture">
+                    <img src="<%= recipe.url%>" class="card-img-top food-url" alt="food picture">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="/recipes/<%=recipe._id%>"><%= recipe.name %></a>
@@ -97,7 +91,7 @@
 
         <section>
             <form action = "/users/<%=user._id%>?_method=DELETE" method = "POST">
-                <button class = 'btn' type = 'submit'>Delete Account</button>
+                <button class = 'btn-delete' type = 'submit'>Delete Account</button>
             </form>
             <button class = 'btn'>
             <a href="/users/<%= user._id%>/new">Add New Recipes</a>

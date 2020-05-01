@@ -67,6 +67,9 @@ router.post('/',async (req,res)=>{
 // EDIT ROUTE
 router.get('/:id/edit', async (req,res) => {
     try {
+        if(!req.session.currentUser){
+            return res.redirect('/auth/login')
+        }
     const foundUser = await db.User.findById(req.params.id)
 
     res.render('user/edit', {
@@ -93,11 +96,12 @@ router.put('/:id', async (req,res) => {
     }
 })
 
-// DELETE ROUTE Destroy
-// :id is a property
-// :_id property of a record on a database
+// DELETE Route
 router.delete('/:id', async (req,res) => {
     try {
+        if(!req.session.currentUser){
+            return res.redirect('/auth/login')
+        }
     const deletedUser = await db.User.findByIdAndDelete(req.params.id)
     const result = await db.Recipe.deleteMany({user: req.params.id})
     console.log('Delete Many Result = ', result)
@@ -113,6 +117,9 @@ router.delete('/:id', async (req,res) => {
 
 router.get('/:id/recipes',async (req,res)=>{
     try{
+        if(!req.session.currentUser){
+            return res.redirect('/auth/login')
+        }
         const foundUser = await db.User.findById(req.params.id).populate('recipes').exec()
         console.log(foundUser.recipes.name)
         res.render('user/index',{

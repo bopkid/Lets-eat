@@ -2,6 +2,10 @@
   "name": "lets-eat",
   "version": "1.0.0",
   "description": "Food Recipe app built with Node/Express and MongoDB",
+  "engines": {
+    "node": "12.16.x",
+    "npm": "6.x"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

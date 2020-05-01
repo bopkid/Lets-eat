@@ -37,6 +37,9 @@ VI. When a user clicks on the recipe they can look at it in more details
 
 
 ## Wire Frames
+
+![models](wireframes/ERBv2.png)
+
 ![homepage](wireframes/main-page.png)
 
 ![login](wireframes/login-page.png)
@@ -53,3 +56,4 @@ VI. When a user clicks on the recipe they can look at it in more details
 ![recipeindex](wireframes/index.png)
 
 ![recipeindex](wireframes/show.png)
+
